@@ -198,6 +198,26 @@ public class City {
                 '}';
     }
 
+    public String toCSV(){
+        return
+                        "\n" +
+                        id + ";" +
+                        municipio + ";" +
+                        microgeriao + ";" +
+                        estado+ ";" +
+                        regiaoGeografica + ";" +
+                        mostrarNumeroFormatado(area,3)+ ";" +
+                        mostrarNumeroFormatado(populacao,5)+ ";" +
+                        mostrarNumeroFormatado(domicilios,4)+ ";" +
+                        mostrarNumeroFormatado(pibTotal,5)+ ";" +
+                        mostrarNumeroFormatado(idh,5)+ ";" +
+                        mostrarNumeroFormatado(rendaMedia,4)+ ";" +
+                        mostrarNumeroFormatado(rendaNominal,3)+ ";" +
+                        pea+ ";" +
+                        mostrarNumeroFormatado(idhEducacao,5)+ ";" +
+                        mostrarNumeroFormatado(idhLongevidade,5);
+    }
+
     //FUNÇÃO PARA ARRUMAR OS NUMEROS QUE ESTÃO FICANDO EM NOTAÇÃO CIÊNTIFICA
     public String mostrarNumeroFormatado(double numero,int casasPosVirgula){
 

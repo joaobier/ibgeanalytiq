@@ -10,18 +10,24 @@ import static java.lang.Integer.parseInt;
 
 public class Reader {
 
-    private ArrayList<City> listaCidades = new ArrayList<City>();
+    private ArrayList<City> listaCidades;
+    String filePath;
 
-    public Reader()
-    {
-        //String filePath = "C:\\Users\\Aluno\\Desktop\\csv\\copia.csv";
-        String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+    public Reader(){
+        this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\teste.csv";
+        this.listaCidades = new ArrayList<City>();
+    }
+
+    public ArrayList<City> ler(){
+
         BufferedReader reader = null;
         String line = "";
 
         try
         {
-            reader = new BufferedReader(new FileReader(filePath));
+            reader = new BufferedReader(new FileReader(this.filePath));
+            reader.readLine(); //só pra pular a linha que tem o cabeçalho
             while((line = reader.readLine()) != null){
                 String[] row = line.split(";");
 
@@ -47,7 +53,7 @@ public class Reader {
                         parseDouble(row[13]),
                         parseDouble(row[14]));
 
-                listaCidades.add(city);
+                this.listaCidades.add(city);
 
             }
         }
@@ -60,10 +66,12 @@ public class Reader {
         } finally {
             try{
                 reader.close();
+                return this.listaCidades;
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
+        return this.listaCidades;
     }
 
     public ArrayList<City> getListaCidades(){

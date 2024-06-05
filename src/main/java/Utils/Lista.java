@@ -11,12 +11,20 @@ public class Lista {
 
     public Lista(){
         this.leitor = new Reader();
-        this.cidades = leitor.getListaCidades();
+        this.cidades = leitor.ler();
     }
 
     public void listar(){
+        this.cidades = leitor.ler();
         for(City c : cidades) {
             System.out.println(c.toString());
+        }
+    }
+
+    public void listarComoCSV(){
+        this.cidades = leitor.ler();
+        for(City c : cidades) {
+            System.out.println(c.toCSV());
         }
     }
 
