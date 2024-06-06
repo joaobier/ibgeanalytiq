@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Writer {
 
-    String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
-
+    //String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+    String filePath = "C:\\Users\\Aluno\\Desktop\\original.csv";
     public void adicionarCidade(City cidade){
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,true))) {

@@ -1,13 +1,14 @@
-package Utils;
+package Services;
 
 import Model.City;
+import Utils.Reader;
 
 import java.util.ArrayList;
 
 public class Lista {
 
-    Reader leitor;
-    ArrayList<City> cidades;
+    private Reader leitor;
+    protected ArrayList<City> cidades;
 
     public Lista(){
         this.leitor = new Reader();
@@ -26,6 +27,14 @@ public class Lista {
         for(City c : cidades) {
             System.out.println(c.toCSV());
         }
+    }
+
+    public ArrayList<City> getCidades() {
+        return cidades;
+    }
+
+    public void setCidades(ArrayList<City> array){
+        this.cidades = array;
     }
 
 }

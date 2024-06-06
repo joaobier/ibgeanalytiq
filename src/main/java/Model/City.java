@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class City {
 
-    int id;
+    String id;
     String municipio;
     String microgeriao;
     String estado;
@@ -20,8 +20,13 @@ public class City {
     double idhEducacao;
     double idhLongevidade;
 
+    //variáveis geradas através de operações da própria classe com dados base
+    double densidadeDemografica;
+    double pibPcTotal;
+    String classficacaoIDH;
+
     //CONSTRUTOR
-    public City(int id,
+    public City(String id,
                 String municipio,
                 String microgeriao,
                 String estado,
@@ -51,16 +56,32 @@ public class City {
         this.pea = pea;
         this.idhEducacao = idhEducacao;
         this.idhLongevidade = idhLongevidade;
+
+        //contas para setar as 3 variáveis dependentes
+        this.densidadeDemografica = (pibTotal/populacao);
+        this.pibPcTotal = (pibTotal/populacao);
+
+        //Classificação de IDH
+        if(idh > 0.8){
+            this.classficacaoIDH = "MUITO ALTO";
+        }else if(idh > 0.7 && idh <= 0.8){
+            this.classficacaoIDH = "ALTO";
+        }else if(idh > 0.55 && idh <= 0.7){
+            this.classficacaoIDH = "MÉDIO";
+        }else if(idh <= 0.55){
+            this.classficacaoIDH = "BAIXO";
+        }
+
     }
 
     public City(){}
 
     //GETTERS E SETTERS
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -195,6 +216,9 @@ public class City {
                 ", pea=" + pea +
                 ", idhEducacao=" + mostrarNumeroFormatado(idhEducacao,5)  +
                 ", idhLongevidade=" + mostrarNumeroFormatado(idhLongevidade,5) +
+                ", densidade=" + mostrarNumeroFormatado(densidadeDemografica,4) +
+                ", pibTotal=" + mostrarNumeroFormatado(pibTotal,5) +
+                ", classficacaoIDH=" + classficacaoIDH +
                 '}';
     }
 
@@ -216,6 +240,29 @@ public class City {
                         pea+ ";" +
                         mostrarNumeroFormatado(idhEducacao,5)+ ";" +
                         mostrarNumeroFormatado(idhLongevidade,5);
+    }
+
+    public String toCSVOut(){
+        return
+                "\n" +
+                        id + ";" +
+                        municipio + ";" +
+                        microgeriao + ";" +
+                        estado+ ";" +
+                        regiaoGeografica + ";" +
+                        mostrarNumeroFormatado(area,3)+ ";" +
+                        mostrarNumeroFormatado(populacao,5)+ ";" +
+                        mostrarNumeroFormatado(domicilios,4)+ ";" +
+                        mostrarNumeroFormatado(pibTotal,5)+ ";" +
+                        mostrarNumeroFormatado(idh,5)+ ";" +
+                        mostrarNumeroFormatado(rendaMedia,4)+ ";" +
+                        mostrarNumeroFormatado(rendaNominal,3)+ ";" +
+                        pea+ ";" +
+                        mostrarNumeroFormatado(idhEducacao,5)+ ";" +
+                        mostrarNumeroFormatado(idhLongevidade,5)+ ";" +
+                        mostrarNumeroFormatado(densidadeDemografica,5)+ ";" +
+                        mostrarNumeroFormatado(pibPcTotal,5)+ ";" +
+                        classficacaoIDH;
     }
 
     //FUNÇÃO PARA ARRUMAR OS NUMEROS QUE ESTÃO FICANDO EM NOTAÇÃO CIÊNTIFICA

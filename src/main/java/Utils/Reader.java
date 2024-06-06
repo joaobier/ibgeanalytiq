@@ -14,7 +14,8 @@ public class Reader {
     String filePath;
 
     public Reader(){
-        this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        this.filePath= "C:\\Users\\Aluno\\Desktop\\original.csv";
         //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\teste.csv";
         this.listaCidades = new ArrayList<City>();
     }
@@ -37,7 +38,7 @@ public class Reader {
                 }
 
                 City city = new City(
-                        parseInt(row[0]),
+                        row[0],
                         row[1],
                         row[2],
                         row[3],
