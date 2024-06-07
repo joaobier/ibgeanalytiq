@@ -33,4 +33,10 @@ public class Writer {
         }
     }
 
+    public void writeOutFile(ArrayList<City> listaAtual){
+
+        File file = new File("C:\\Users\\Aluno\\Desktop\\out\\out.csv");
+
+    }
+
 }

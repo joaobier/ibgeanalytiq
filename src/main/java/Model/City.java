@@ -197,6 +197,30 @@ public class City {
         this.idhLongevidade = idhLongevidade;
     }
 
+    public double getDensidadeDemografica() {
+        return densidadeDemografica;
+    }
+
+    public void setDensidadeDemografica(double densidadeDemografica) {
+        this.densidadeDemografica = densidadeDemografica;
+    }
+
+    public double getPibPcTotal() {
+        return pibPcTotal;
+    }
+
+    public void setPibPcTotal(double pibPcTotal) {
+        this.pibPcTotal = pibPcTotal;
+    }
+
+    public String getClassficacaoIDH() {
+        return classficacaoIDH;
+    }
+
+    public void setClassficacaoIDH(String classficacaoIDH) {
+        this.classficacaoIDH = classficacaoIDH;
+    }
+
     //TO STRING
     @Override
     public String toString() {
