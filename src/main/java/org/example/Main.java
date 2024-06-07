@@ -1,10 +1,12 @@
 package org.example;
 import Model.City;
-import Services.Lista;
+import Services.*;
+import Services.Update;
 import Utils.Reader;
 import Utils.Writer;
 
 import java.io.File;
+import java.util.ArrayList;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -23,27 +25,63 @@ public class Main {
         
         //SÓ PARA SEPARAR
         System.out.println("-------------------------------------------------------------------------------------------------------");
-        
+
         //INSTANCIANDO UMA CIDADE
-        City cidade = new City("53000","Biercity","Bierland","Bier","BierCountry",1000,1000,1000,1000,1000,1000,1000,1000,1000,1000);
+        //City cidade = new City("53000","Biercity","Bierland","Bier","BierCountry",1000,1000,1000,1000,1000,1000,1000,1000,1000,1000);
         City cidade2 = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
         
         //ADICIONANDO MINHA CIDADE A MINHA LISTA
-        lista.AddCidade(cidade);
-        lista.AddCidade(cidade2);
-        
-        lista.listarComoCSV();
-        
-        System.out.println("-------------------------------------------------------------------------------------------------------");
+        Create criador = new Create();
 
-        
-        writer.atualizarTodoCSV(lista.getCidades());
+        //ADICIONANDO A CIDADE NA LISTA E NO CSV
+        //criador.createCity(lista,cidade);
+        criador.createCity(lista,cidade2);
+
+        lista.listarComNumero();
+
+        Read read = new Read();
+        System.out.println("--------------------------------------------------------");
+        System.out.println(read.FindById("5221577",lista));
+        System.out.println(read.FindByName("Trombas",lista));
+        System.out.println(read.FindBestPibPerCapta(lista));
+        System.out.println(read.FindWorstPibPerCapta(lista));
+        System.out.println(read.FindBestIdh(lista));
+        System.out.println(read.FindWorstIdh(lista));
+        System.out.println("--------------------------------------------------------");
+
+        //LISTANDO A LISTA NA INSTÂNCIA DA MÁQUINA
+        //System.out.println("--------------------------------------------------------");
+        //lista.listarComoCSV();
+        //System.out.println("--------------------------------------------------------");
+
+        /*
+        //ADICIONANDO NO DOCUMENTO CSV ESSAS CIDADES
+        writer.adicionarCidade(cidade);
+        writer.adicionarCidade(cidade2);
+        */
+        //writer.atualizarTodoCSV(lista.getCidades());
+
+
+
+        //writer.atualizarTodoCSV(lista.getCidades());
+
+        //System.out.println("-------------------------------------------------------------------------------------------------------");
+
+       // City item = new City("00001","Brasilia","Distrito Fredre","Microgeriao","Dsitrito Freredrel",9,9,9,9,9,9,9,9,9,9);
+
+        //Update updater = new Update();
+
+        //updater.UpdateById("666",lista,item);
+
+        //lista.listarComNumero();
+
+        //writer.atualizarTodoCSV(lista.getCidades());
         
         //SÓ PARA VER O FINAL
         
-        //ATULIZA AS CIDADES PELO CSV
-        lista.setCidades(reader.ler());
-        lista.listarComoCSV();
+        //ATUALIZA AS CIDADES PELO CSV
+        //lista.setCidades(reader.ler());
+        //lista.listarComoCSV();
         
         //writer.atualizarTodoCSV(lista.getCidades());
         //System.out.println(cidade.toString());

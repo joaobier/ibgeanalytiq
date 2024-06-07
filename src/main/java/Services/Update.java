@@ -16,16 +16,25 @@ public class Update {
     }
 
     public boolean UpdateById(String id, Lista lista, City cidade) {
-        Scanner ler = new Scanner(System.in);
+
         ArrayList<City> cidades = lista.getCidades();
+
         for (int i = 0; i < lista.cidades.size(); i++) {
-            if (lista.cidades.get(i).getId().equals(id)) {
-                //lista.removeCity(cidade);
+            City item = cidades.get(i);
+            if(item.getId().equals(id)) {
+                System.out.println("Achei isso aqui: "+item.toCSV());
+                System.out.println("VOU REMOVER!");
                 cidades.remove(i);
             }
         }
-        
+
+        cidades.add(cidade);
         writer.atualizarTodoCSV(cidades);
+
+        //lista.setCidades(cidades);
+        //lista.listarComoCSV();
+
+        //writer.atualizarTodoCSV(lista.getCidades());
         /*
         cidade = new City(ler.next(), ler.next(), ler.next(), ler.next(), ler.next(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble(), ler.nextDouble());
         writer.adicionarCidade(cidade);

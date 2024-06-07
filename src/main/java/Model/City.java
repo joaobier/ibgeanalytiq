@@ -6,7 +6,7 @@ public class City {
 
     String id;
     String municipio;
-    String microgeriao;
+    String microregiao;
     String estado;
     String regiaoGeografica;
     double area;
@@ -28,7 +28,7 @@ public class City {
     //CONSTRUTOR
     public City(String id,
                 String municipio,
-                String microgeriao,
+                String microregiao,
                 String estado,
                 String regiaoGeografica,
                 double area,
@@ -43,7 +43,7 @@ public class City {
                 double idhLongevidade) {
         this.id = id;
         this.municipio = municipio;
-        this.microgeriao = microgeriao;
+        this.microregiao = microregiao;
         this.regiaoGeografica = regiaoGeografica;
         this.estado = estado;
         this.area = area;
@@ -93,12 +93,12 @@ public class City {
         this.municipio = municipio;
     }
 
-    public String getMicrogeriao() {
-        return microgeriao;
+    public String getMicroregiao() {
+        return microregiao;
     }
 
-    public void setMicrogeriao(String microgeriao) {
-        this.microgeriao = microgeriao;
+    public void setMicroregiao(String microgeriao) {
+        this.microregiao = microgeriao;
     }
 
     public String getEstado() {
@@ -227,7 +227,7 @@ public class City {
         return "City{" +
                 "id=" + id +
                 ", municipio='" + municipio + '\'' +
-                ", microgeriao='" + microgeriao + '\'' +
+                ", microgeriao='" + microregiao + '\'' +
                 ", estado='" + estado + '\'' +
                 ", regiaoGeografica='" + regiaoGeografica + '\'' +
                 ", area=" + mostrarNumeroFormatado(area,3) +
@@ -251,7 +251,7 @@ public class City {
                         
                         id + ";" +
                         municipio + ";" +
-                        microgeriao + ";" +
+                        microregiao + ";" +
                         estado+ ";" +
                         regiaoGeografica + ";" +
                         mostrarNumeroFormatado(area,3)+ ";" +
@@ -272,7 +272,7 @@ public class City {
                 
                         id + ";" +
                         municipio + ";" +
-                        microgeriao + ";" +
+                        microregiao + ";" +
                         estado+ ";" +
                         regiaoGeografica + ";" +
                         mostrarNumeroFormatado(area,3)+ ";" +

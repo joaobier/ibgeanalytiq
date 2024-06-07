@@ -15,24 +15,24 @@ public class Read {
 
     
     public City FindById(String id, Lista lista) {
-        City city = lista.cidades.get(0);
+
         for (int i = 0; i < lista.cidades.size(); i++) {
             if (lista.cidades.get(i).getId().equals(id)) {
-                city = lista.cidades.get(i);
+                return lista.cidades.get(i);
             }
         }
-        return city;
+        return null;
     }
 
     
-    public City FindByName(char municipio, Lista lista) {
-        City city = lista.cidades.get(0);
+    public City FindByName(String municipio, Lista lista) {
+
         for (int i = 0; i < lista.cidades.size(); i++) {
             if (lista.cidades.get(i).getMunicipio().equals(municipio)) {
-                city = lista.cidades.get(i);
+                return lista.cidades.get(i);
             }
         }
-        return city;
+        return null;
     }
 
     

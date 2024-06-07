@@ -16,14 +16,22 @@ public class Lista {
     }
 
     public void listar(){
-        this.cidades = leitor.ler();
-        for(City c : cidades) {
-            System.out.println(c.toString());
+        //this.cidades = leitor.ler();
+        for (int i = 0; i < cidades.size(); i++){
+            System.out.println(cidades.get(i).toCSV());
         }
     }
 
+    public void listarComNumero() {
+        //this.cidades = leitor.ler();
+        for (int i = 0; i < cidades.size(); i++){
+            System.out.println(i+": " + cidades.get(i).toCSV());
+        }
+    }
+
+
     public void listarComoCSV(){
-        this.cidades = leitor.ler();
+        //this.cidades = leitor.ler();
         for(City c : cidades) {
             System.out.println(c.toCSV());
         }
@@ -38,7 +46,9 @@ public class Lista {
     }
     
     public void atualizarLista(){
+
         this.cidades = this.leitor.ler();
+
     }
 
     

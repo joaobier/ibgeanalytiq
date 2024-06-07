@@ -10,10 +10,16 @@ public class Writer {
 
     //String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
     //String filePath = "C:\\Users\\Aluno\\Desktop\\original.csv";
-    String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
+    //String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
+    String filePath;
+
+    public Writer(){
+        this.filePath = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
+    }
+
     public void adicionarCidade(City cidade){
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,true))) {
             writer.write(cidade.toCSV());
 
         } catch (IOException e) {
