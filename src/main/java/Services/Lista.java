@@ -36,5 +36,19 @@ public class Lista {
     public void setCidades(ArrayList<City> array){
         this.cidades = array;
     }
+    
+    public void atualizarLista(){
+        this.cidades = this.leitor.ler();
+    }
 
+    
+    public boolean removeCity(City cidade){
+        cidades.remove(cidade);
+        return true;
+    }
+    
+    public boolean AddCidade(City cidade){
+        this.cidades.add(cidade);
+        return true;
+    }
 }

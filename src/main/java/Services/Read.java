@@ -5,38 +5,86 @@ import java.util.ArrayList;
 
 public class Read {
 
-    public Read(){}
+    public Read() {
+    }
 
+    
     public ArrayList<City> FindAll(Lista lista) {
         return lista.getCidades();
     }
 
-    public City FindById(String id,Lista lista) {
-        int idInt = Integer.parseInt(id);
-        for (City element : lista.cidades){
-            //return lista.getCidades().get(id);
+    
+    public City FindById(String id, Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 0; i < lista.cidades.size(); i++) {
+            if (lista.cidades.get(i).getId().equals(id)) {
+                city = lista.cidades.get(i);
+            }
         }
-        return lista.getCidades().get(idInt);
+        return city;
     }
 
-    public void FindByName(char municipio,Lista lista) {
-
+    
+    public City FindByName(char municipio, Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 0; i < lista.cidades.size(); i++) {
+            if (lista.cidades.get(i).getMunicipio().equals(municipio)) {
+                city = lista.cidades.get(i);
+            }
+        }
+        return city;
     }
 
-    public void FindBestPibPerCapta(Lista lista) {
+    
+    public City FindBestPibPerCapta(Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 1; i < lista.cidades.size(); i++) {
 
+            if (lista.cidades.get(i).getPibPcTotal() > city.getPibPcTotal()) {
+                city = lista.cidades.get(i);
+            }
+
+        }
+        return city;
     }
 
-    public void FindBestIdh(Lista lista) {
+    
+    public City FindBestIdh(Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 1; i < lista.cidades.size(); i++) {
 
+            if (lista.cidades.get(i).getIdh() > city.getIdh()) {
+                city = lista.cidades.get(i);
+            }
+
+        }
+        return city;
     }
 
-    public void FindWorstPibPerCapta(Lista lista) {
 
+    public City FindWorstPibPerCapta(Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 1; i < lista.cidades.size(); i++) {
+
+            if (lista.cidades.get(i).getPibPcTotal() < city.getPibPcTotal()) {
+                city = lista.cidades.get(i);
+            }
+
+        }
+        return city;
     }
 
-    public void FindWorstIdh(Lista lista) {
+    
+    public City FindWorstIdh(Lista lista) {
+        City city = lista.cidades.get(0);
+        for (int i = 1; i < lista.cidades.size(); i++) {
 
+            if (lista.cidades.get(i).getIdh() < city.getIdh()) {
+                city = lista.cidades.get(i);
+            }
+
+        }
+        return city;
     }
 
 }

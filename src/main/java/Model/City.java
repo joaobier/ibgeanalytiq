@@ -248,7 +248,7 @@ public class City {
 
     public String toCSV(){
         return
-                        "\n" +
+                        
                         id + ";" +
                         municipio + ";" +
                         microgeriao + ";" +
@@ -263,12 +263,13 @@ public class City {
                         mostrarNumeroFormatado(rendaNominal,3)+ ";" +
                         pea+ ";" +
                         mostrarNumeroFormatado(idhEducacao,5)+ ";" +
-                        mostrarNumeroFormatado(idhLongevidade,5);
+                        mostrarNumeroFormatado(idhLongevidade,5)+ "\n";
+                
     }
 
     public String toCSVOut(){
         return
-                "\n" +
+                
                         id + ";" +
                         municipio + ";" +
                         microgeriao + ";" +
@@ -286,7 +287,7 @@ public class City {
                         mostrarNumeroFormatado(idhLongevidade,5)+ ";" +
                         mostrarNumeroFormatado(densidadeDemografica,5)+ ";" +
                         mostrarNumeroFormatado(pibPcTotal,5)+ ";" +
-                        classficacaoIDH;
+                        classficacaoIDH +"\n";
     }
 
     //FUNÇÃO PARA ARRUMAR OS NUMEROS QUE ESTÃO FICANDO EM NOTAÇÃO CIÊNTIFICA
