@@ -14,38 +14,52 @@ public class Main {
     public static void main(String[] args) {
 
         //INSTANCIANDO O WRITER E O READER
+        System.out.println("---------------------------------------------");
+        System.out.println("Instanciei o Writer");
         Writer writer = new Writer();
+        System.out.println("---------------------------------------------");
+        System.out.println("Instanciei o Reader");
         Reader reader = new Reader();
-        
+        System.out.println("---------------------------------------------");
+        System.out.println("Instânciei uma lista");
         //INSTANCIANDO UMA LISTA
         Lista lista = new Lista();
+
+        lista.listarComNumero();
+
+        writer.atualizarTodoCSV(lista.getCidades());
+
+        //writer.atualizarTodoCSV(lista.getCidades());
 
         //LISTANDO A LISTA QUE ESTÁ NO CSV E O NOSSO SISTEMA SÓ PARA VER
         //lista.listarComoCSV();
         
         //SÓ PARA SEPARAR
-        System.out.println("-------------------------------------------------------------------------------------------------------");
+        //System.out.println("-------------------------------------------------------------------------------------------------------");
 
         //INSTANCIANDO UMA CIDADE
         //City cidade = new City("53000","Biercity","Bierland","Bier","BierCountry",1000,1000,1000,1000,1000,1000,1000,1000,1000,1000);
-        City cidade2 = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
+        //City cidade2 = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
         
         //ADICIONANDO MINHA CIDADE A MINHA LISTA
-        Create criador = new Create();
+        //Create criador = new Create();
 
         //ADICIONANDO A CIDADE NA LISTA E NO CSV
         //criador.createCity(lista,cidade);
-        criador.createCity(lista,cidade2);
+        //criador.createCity(lista,cidade2);
 
-        City cidade3 = new City("999","Metropolis","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
-        Update update = new Update();
-        update.UpdateById("666",lista,cidade3);
+        //City cidade3 = new City("999","Metropolis","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
+        //Update update = new Update();
+        //update.UpdateById("666",lista,cidade3);
 
-        Read read = new Read();
-        System.out.println(read.FindById("999",lista).toString());
+        //Read read = new Read();
+        //System.out.println(read.FindById("999",lista).toString());
 
-        City last = lista.getCidades().getLast();
-        System.out.println(last.toString());
+        //City last = lista.getCidades().getLast();
+        //System.out.println(last.toString());
+
+        //writer.writeOutFile();
+
         /*
         Read read = new Read();
         System.out.println("--------------------------------------------------------");

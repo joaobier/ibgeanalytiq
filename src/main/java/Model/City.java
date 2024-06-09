@@ -26,7 +26,7 @@ public class City {
     double pibPcTotal;
     String classficacaoIDH;
 
-    //CONSTRUTOR
+    //CONSTRUTOR QUE SE USA PARA LER
     public City(String id,
                 String municipio,
                 String microregiao,
@@ -57,7 +57,7 @@ public class City {
         this.pea = pea;
         this.idhEducacao = idhEducacao;
         this.idhLongevidade = idhLongevidade;
-        //this.ultimaAtualizacao;
+        this.ultimaAtualizacao = "-";
         //contas para setar as 3 variáveis dependentes
         this.densidadeDemografica = (pibTotal/populacao);
         this.pibPcTotal = (pibTotal/populacao);
@@ -73,6 +73,48 @@ public class City {
             this.classficacaoIDH = "BAIXO";
         }
 
+    }
+
+    //CONSTRUTOR COM TUDO PARA SE USAR MAIS PRA LER OS DADOS DA SAÍDA
+    public City(
+            String id,
+            String municipio,
+            String microregiao,
+            String estado,
+            String regiaoGeografica,
+            double area,
+            double populacao,
+            double domicilios,
+            double pibTotal,
+            double idh,
+            double rendaMedia,
+            double rendaNominal,
+            double pea,
+            double idhEducacao,
+            double idhLongevidade,
+            double densidadeDemografica,
+            double pibPcTotal,
+            String classficacaoIDH,
+            String ultimaAtualizacao) {
+        this.id = id;
+        this.municipio = municipio;
+        this.microregiao = microregiao;
+        this.estado = estado;
+        this.regiaoGeografica = regiaoGeografica;
+        this.area = area;
+        this.populacao = populacao;
+        this.domicilios = domicilios;
+        this.pibTotal = pibTotal;
+        this.idh = idh;
+        this.rendaMedia = rendaMedia;
+        this.rendaNominal = rendaNominal;
+        this.pea = pea;
+        this.idhEducacao = idhEducacao;
+        this.idhLongevidade = idhLongevidade;
+        this.ultimaAtualizacao = ultimaAtualizacao;
+        this.densidadeDemografica = densidadeDemografica;
+        this.pibPcTotal = pibPcTotal;
+        this.classficacaoIDH = classficacaoIDH;
     }
 
     public City(){}

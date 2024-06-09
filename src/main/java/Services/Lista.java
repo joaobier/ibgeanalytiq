@@ -3,16 +3,28 @@ package Services;
 import Model.City;
 import Utils.Reader;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Lista {
 
     private Reader leitor;
     protected ArrayList<City> cidades;
-
+    private String filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv"; //path do arquivo de saída
+    File fileOut = new File(filePathSaida); //declara o arquivo para verificar se ele existe
     public Lista(){
+        preencherLista();
+    }
+
+    public void preencherLista(){
         this.leitor = new Reader();
-        this.cidades = leitor.ler();
+        if(fileOut.length() > 243){
+            System.out.println("Tamanho do arquivo é de: " + fileOut.length());
+            this.cidades = leitor.lerArquivoSaida();
+        }else{
+            System.out.println("O arquivo tem só uma linha, que é o cabeçalho, vou ler o arquivo de entrada padrão");
+            this.cidades =leitor.lerArquivoEntrada();
+        }
     }
 
     public void listar(){
@@ -47,7 +59,7 @@ public class Lista {
     
     public void atualizarLista(){
 
-        this.cidades = this.leitor.ler();
+        this.cidades = this.leitor.lerArquivoSaida();
 
     }
 
