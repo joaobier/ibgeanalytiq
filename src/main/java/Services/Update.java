@@ -2,7 +2,10 @@ package Services;
 
 import Model.City;
 import Utils.Writer;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Update {
@@ -27,6 +30,13 @@ public class Update {
                 cidades.remove(i);
             }
         }
+
+        //Pega a hora do sistema no momento do update
+        Date momento = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); //usando esse formatador para colocar a hora em um formato legível
+        formato.format(momento);
+        //Adiciona a data da atualização na cidade atualizada
+        cidade.setUltimaAtualizacao(momento.toString());
 
         cidades.add(cidade);
         writer.atualizarTodoCSV(cidades);

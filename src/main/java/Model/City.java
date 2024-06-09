@@ -1,6 +1,7 @@
 package Model;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 
 public class City {
 
@@ -19,7 +20,7 @@ public class City {
     double pea;
     double idhEducacao;
     double idhLongevidade;
-
+    String ultimaAtualizacao;
     //variáveis geradas através de operações da própria classe com dados base
     double densidadeDemografica;
     double pibPcTotal;
@@ -56,7 +57,7 @@ public class City {
         this.pea = pea;
         this.idhEducacao = idhEducacao;
         this.idhLongevidade = idhLongevidade;
-
+        //this.ultimaAtualizacao;
         //contas para setar as 3 variáveis dependentes
         this.densidadeDemografica = (pibTotal/populacao);
         this.pibPcTotal = (pibTotal/populacao);
@@ -201,9 +202,7 @@ public class City {
         return densidadeDemografica;
     }
 
-    public void setDensidadeDemografica(double densidadeDemografica) {
-        this.densidadeDemografica = densidadeDemografica;
-    }
+    public void setDensidadeDemografica(double densidadeDemografica) {this.densidadeDemografica = densidadeDemografica;}
 
     public double getPibPcTotal() {
         return pibPcTotal;
@@ -220,6 +219,10 @@ public class City {
     public void setClassficacaoIDH(String classficacaoIDH) {
         this.classficacaoIDH = classficacaoIDH;
     }
+
+    public void setUltimaAtualizacao(String momento) {this.ultimaAtualizacao = momento;}
+
+    public String getUltimaAtualizacao() {return ultimaAtualizacao;}
 
     //TO STRING
     @Override
@@ -243,6 +246,7 @@ public class City {
                 ", densidade=" + mostrarNumeroFormatado(densidadeDemografica,4) +
                 ", pibTotal=" + mostrarNumeroFormatado(pibTotal,5) +
                 ", classficacaoIDH=" + classficacaoIDH +
+                ", ultimaAlteracao= " + ultimaAtualizacao +
                 '}';
     }
 
@@ -263,7 +267,8 @@ public class City {
                         mostrarNumeroFormatado(rendaNominal,3)+ ";" +
                         pea+ ";" +
                         mostrarNumeroFormatado(idhEducacao,5)+ ";" +
-                        mostrarNumeroFormatado(idhLongevidade,5)+ "\n";
+                        mostrarNumeroFormatado(idhLongevidade,5)+ ";" +
+                        ultimaAtualizacao + "\n";
                 
     }
 

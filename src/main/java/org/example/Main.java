@@ -37,8 +37,16 @@ public class Main {
         //criador.createCity(lista,cidade);
         criador.createCity(lista,cidade2);
 
-        lista.listarComNumero();
+        City cidade3 = new City("999","Metropolis","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
+        Update update = new Update();
+        update.UpdateById("666",lista,cidade3);
 
+        Read read = new Read();
+        System.out.println(read.FindById("999",lista).toString());
+
+        City last = lista.getCidades().getLast();
+        System.out.println(last.toString());
+        /*
         Read read = new Read();
         System.out.println("--------------------------------------------------------");
         System.out.println(read.FindById("5221577",lista));
@@ -48,7 +56,7 @@ public class Main {
         System.out.println(read.FindBestIdh(lista));
         System.out.println(read.FindWorstIdh(lista));
         System.out.println("--------------------------------------------------------");
-
+        */
         //LISTANDO A LISTA NA INSTÂNCIA DA MÁQUINA
         //System.out.println("--------------------------------------------------------");
         //lista.listarComoCSV();

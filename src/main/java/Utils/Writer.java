@@ -8,14 +8,12 @@ import java.util.ArrayList;
 
 public class Writer {
 
-    //String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+    String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
     //String filePath = "C:\\Users\\Aluno\\Desktop\\original.csv";
     //String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
-    String filePath;
+    //String filePath= "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
 
-    public Writer(){
-        this.filePath = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
-    }
+    public Writer(){}
 
     public void adicionarCidade(City cidade){
 

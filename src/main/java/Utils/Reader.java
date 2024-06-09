@@ -14,11 +14,11 @@ public class Reader {
     String filePath;
 
     public Reader(){
-        //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
         //this.filePath= "C:\\Users\\Aluno\\Desktop\\original.csv";
         //this.filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
         //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\teste.csv";
-        this.filePath = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
+        //this.filePath = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
         this.listaCidades = new ArrayList<City>();
     }
 
