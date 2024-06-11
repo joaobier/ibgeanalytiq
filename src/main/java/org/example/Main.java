@@ -6,28 +6,22 @@ import Utils.Reader;
 import Utils.Writer;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        //INSTANCIANDO O WRITER E O READER
-        System.out.println("---------------------------------------------");
-        System.out.println("Instanciei o Writer");
-        Writer writer = new Writer();
-        System.out.println("---------------------------------------------");
-        System.out.println("Instanciei o Reader");
-        Reader reader = new Reader();
-        System.out.println("---------------------------------------------");
-        System.out.println("Instânciei uma lista");
-        //INSTANCIANDO UMA LISTA
         Lista lista = new Lista();
-
-        lista.listarComNumero();
-
-        writer.atualizarTodoCSV(lista.getCidades());
+        //Writer writer = new Writer();
+        //writer.writeOutFile();
+        //writer.atualizarTodoCSV(lista.getCidades());
+        //System.out.println("Vou imprimir a lista de cidades");
+        //lista = new Lista();
+        //lista.listarComoCSV();
+        lista.quantasCidades();
 
         //writer.atualizarTodoCSV(lista.getCidades());
 

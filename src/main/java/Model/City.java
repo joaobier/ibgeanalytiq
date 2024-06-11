@@ -26,7 +26,7 @@ public class City {
     double pibPcTotal;
     String classficacaoIDH;
 
-    //CONSTRUTOR QUE SE USA PARA LER
+    //CONSTRUTOR QUE SE USA PARA LER O ARQUIVO DE ENTRADA
     public City(String id,
                 String municipio,
                 String microregiao,
@@ -75,7 +75,7 @@ public class City {
 
     }
 
-    //CONSTRUTOR COM TUDO PARA SE USAR MAIS PRA LER OS DADOS DA SAÍDA
+    //CONSTRUTOR COM TUDO PARA SE USAR MAIS PRA LER O ARQUIVO DE SAIDA
     public City(
             String id,
             String municipio,
@@ -246,9 +246,7 @@ public class City {
 
     public void setDensidadeDemografica(double densidadeDemografica) {this.densidadeDemografica = densidadeDemografica;}
 
-    public double getPibPcTotal() {
-        return pibPcTotal;
-    }
+    public double getPibPcTotal() {return pibPcTotal;}
 
     public void setPibPcTotal(double pibPcTotal) {
         this.pibPcTotal = pibPcTotal;
@@ -329,12 +327,13 @@ public class City {
                         mostrarNumeroFormatado(idh,5)+ ";" +
                         mostrarNumeroFormatado(rendaMedia,4)+ ";" +
                         mostrarNumeroFormatado(rendaNominal,3)+ ";" +
-                        pea+ ";" +
+                        mostrarNumeroFormatado(pea,4)  + ";" +
                         mostrarNumeroFormatado(idhEducacao,5)+ ";" +
                         mostrarNumeroFormatado(idhLongevidade,5)+ ";" +
                         mostrarNumeroFormatado(densidadeDemografica,5)+ ";" +
                         mostrarNumeroFormatado(pibPcTotal,5)+ ";" +
-                        classficacaoIDH +"\n";
+                        classficacaoIDH + ";" +
+                        ultimaAtualizacao +"\n";
     }
 
     //FUNÇÃO PARA ARRUMAR OS NUMEROS QUE ESTÃO FICANDO EM NOTAÇÃO CIÊNTIFICA
