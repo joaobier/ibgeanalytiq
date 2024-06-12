@@ -13,16 +13,46 @@ import Services.Update;
  *
  * @author Aluno
  */
-public class Criar extends javax.swing.JFrame {
+public class Editar extends javax.swing.JFrame {
 
     /**
      * Creates new form Edicao
      */
-    public Criar() {
+    int indexDaCidadeEditada;
+    Lista lista;
+    public Editar(int index) {
      
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        this.indexDaCidadeEditada = index;
+        
+        //declara a lista aqui já
+        lista = new Lista();
+        
+        //atualiza a lista pra garantir que ela tá igual
+        lista.atualizarLista();
+      
+        //monta a cidade que vai ser editada
+        City cidadeEditar = lista.getCidades().get(indexDaCidadeEditada);
+        
+        //Preenchendo os textfield
+        idField.setText(cidadeEditar.getId());
+        municipioField.setText(cidadeEditar.getMunicipio());
+        estadoField.setText(cidadeEditar.getEstado());
+        microRegiaoField.setText(cidadeEditar.getMicroregiao());
+        regiaoGeograficaField.setText(cidadeEditar.getRegiaoGeografica());
+        areaField.setText(String.valueOf(cidadeEditar.getArea()));
+        populacaoField.setText(String.valueOf(cidadeEditar.getPopulacao()));
+        domiciliosField.setText(String.valueOf(cidadeEditar.getDomicilios()));
+        pibTotalField.setText(String.valueOf(cidadeEditar.getPibTotal()));        
+        idhField.setText(String.valueOf(cidadeEditar.getIdh()));        
+        rendaMediaField.setText(String.valueOf(cidadeEditar.getRendaMedia()));        
+        rendaNominalField.setText(String.valueOf(cidadeEditar.getRendaNominal()));
+        peaField.setText(String.valueOf(cidadeEditar.getPea()));        
+        idhEduca.setText(String.valueOf(cidadeEditar.getIdhEducacao()));
+        idhLonge.setText(String.valueOf(cidadeEditar.getIdhLongevidade()));
         
     }
         
@@ -79,7 +109,7 @@ public class Criar extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Criar");
+        jButton1.setText("Editar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -245,9 +275,9 @@ public class Criar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Create create = new Create();
-        Lista lista = new Lista();
-               
+        Update update = new Update();
+        
+                
         String id = idField.getText();
         String municipio = municipioField.getText();
         String estado = estadoField.getText();
@@ -269,7 +299,7 @@ public class Criar extends javax.swing.JFrame {
         //String pibPcTotal;
         
         
-        City cidadeNova = new City(
+        City cidade = new City(
                 id,
                 municipio,
                 microRegiao,
@@ -286,10 +316,9 @@ public class Criar extends javax.swing.JFrame {
                 idhEducacao,
                 idhLongevidade
         );
-        
-        create.createCity(lista, cidadeNova);
+        String idUpdate = String.valueOf(indexDaCidadeEditada);
+        update.UpdateById(idUpdate ,this.lista, cidade);
         dispose();
-        
         
         //update.UpdateById(i, lista, cidadeEditar);
     }//GEN-LAST:event_jButton1ActionPerformed
