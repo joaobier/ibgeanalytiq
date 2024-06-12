@@ -40,7 +40,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
+        setBackground(new java.awt.Color(255, 255, 255));
 
+        LoginButton.setBackground(new java.awt.Color(63, 75, 91));
+        LoginButton.setForeground(new java.awt.Color(255, 255, 255));
         LoginButton.setText("Login");
         LoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +110,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }else{
                 LoginTextField.setText("");
                 PasswordField.setText("");
-               JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos");
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos");
 
             }
             
