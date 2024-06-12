@@ -2,7 +2,7 @@ package org.example;
 import Model.City;
 import Services.*;
 import Services.Update;
-import Swing.NewJFrame;
+import Swing.TelaLogin;
 import Utils.Reader;
 import Utils.Writer;
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class Main {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new TelaLogin().setVisible(true);
             }
         });
         
