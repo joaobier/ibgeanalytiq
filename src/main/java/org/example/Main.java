@@ -2,9 +2,10 @@ package org.example;
 import Model.City;
 import Services.*;
 import Services.Update;
+import Swing.NewJFrame;
 import Utils.Reader;
 import Utils.Writer;
-
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -13,7 +14,13 @@ import java.util.ArrayList;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args){
-
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewJFrame().setVisible(true);
+            }
+        });
+        
         Lista lista = new Lista();
         //Writer writer = new Writer();
         //writer.writeOutFile();
@@ -21,8 +28,30 @@ public class Main {
         //System.out.println("Vou imprimir a lista de cidades");
         //lista = new Lista();
         //lista.listarComoCSV();
-        lista.quantasCidades();
+        
+        Lista novaLista = new Lista();
+        
+        //É verdadeiro isso
+        /*
+        ArrayList<City> listaDaLista = lista.getCidades();
+        ArrayList<City> listaDaNovaLista = lista.getCidades();  
+        System.out.println(listaDaLista.equals(listaDaNovaLista));
+        */
+        //lista.listarComoCSV();
+        
+        Update updater = new Update();
+        
+        City cidade = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
+        
+        updater.UpdateById("53000",novaLista,cidade);
+        
+        //ISSO TEM Q DAR FALSO
+        ArrayList<City> listaDaLista = lista.getCidades();
+        ArrayList<City> listaDaNovaLista = lista.getCidades();  
+        System.out.println(listaDaLista.equals(listaDaNovaLista));
+        
 
+        
         //writer.atualizarTodoCSV(lista.getCidades());
 
         //LISTANDO A LISTA QUE ESTÁ NO CSV E O NOSSO SISTEMA SÓ PARA VER

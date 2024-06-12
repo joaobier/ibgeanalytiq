@@ -32,7 +32,7 @@ public class Lista {
             this.cidades = leitor.lerArquivoSaida(); //lê o que tem no arquivo de saída
         }else{
             System.out.println("O arquivo de saida não existe, ele será criado!");
-            this.cidades =leitor.lerArquivoEntrada(); //lê o que tem no arquivo de entrada
+            this.cidades = leitor.lerArquivoEntrada(); //lê o que tem no arquivo de entrada
 
             //aproveita e já cria o arquivo de saida
             Writer writer = new Writer();

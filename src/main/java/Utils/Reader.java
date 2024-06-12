@@ -178,7 +178,7 @@ public class Reader {
                         parseDouble(row[16]), //pibPcTotal
                         row[17], //classificacaoIDH
                         row[18]); //ultimaAtualizacao
-                System.out.println(city.toString());
+                //System.out.println(city.toString());
                 this.listaCidades.add(city);
 
             }
