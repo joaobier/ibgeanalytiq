@@ -284,7 +284,7 @@ public class City {
                 ", idhEducacao=" + mostrarNumeroFormatado(idhEducacao,5)  +
                 ", idhLongevidade=" + mostrarNumeroFormatado(idhLongevidade,5) +
                 ", densidade=" + mostrarNumeroFormatado(densidadeDemografica,4) +
-                ", pibTotal=" + mostrarNumeroFormatado(pibTotal,5) +
+                ", pib Per Capta Total=" + mostrarNumeroFormatado(pibPcTotal,5) +
                 ", classficacaoIDH=" + classficacaoIDH +
                 ", ultimaAlteracao= " + ultimaAtualizacao +
                 '}';

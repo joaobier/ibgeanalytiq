@@ -4,6 +4,11 @@
  */
 package Swing;
 
+import Model.City;
+import Services.Lista;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Aluno
@@ -13,13 +18,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
+    Lista lista;
     public TelaPrincipal() {
+        lista = new Lista();
         initComponents();
+        preencherTabela();
         this.setLocationRelativeTo(null);
-        
-
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,25 +36,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         CreateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15", "Title 16", "Title 17", "Title 18", "Title 19"
+                "Código IBGE", "Municípios", "Microrregião", "Estado", "Região Geográfica", "Área Km²", "População", "Domicílios", "PIB Total (R$ mil)", "IDH", "Renda Média", "Renda Nominal", "PEA Dia", "IDH Educação", "IDH Longevidade", "Densidade Demográfica", "PIB perCapta", "Classificação IDH", "Última Alteração", "Classificação Edu", "Classificação Longe"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(Table);
 
         jButton1.setText("Buscar");
 
@@ -71,7 +82,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CreateButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +104,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaCriar.setVisible(true);
     }//GEN-LAST:event_CreateButtonActionPerformed
 
+    private void preencherTabela(){
+        
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        
+        ArrayList<City> cidades = lista.getCidades();
+        
+        Object rowData[] = new Object[19];
+         
+        for(int i = 0; i < cidades.size(); i++){
+            
+            rowData[0] = cidades.get(i).getId();
+            rowData[1] = cidades.get(i).getMunicipio();
+            rowData[2] = cidades.get(i).getMicroregiao();
+            rowData[3] = cidades.get(i).getEstado();
+            rowData[4] = cidades.get(i).getRegiaoGeografica();
+            rowData[5] = cidades.get(i).getArea();
+            rowData[6] = cidades.get(i).getPopulacao();
+            rowData[7] = cidades.get(i).getDomicilios();
+            rowData[8] = cidades.get(i).getPibTotal();
+            rowData[9] = cidades.get(i).getRendaMedia();
+            rowData[10] = cidades.get(i).getRendaNominal();
+            rowData[11] = cidades.get(i).getPea();
+            rowData[12] = cidades.get(i).getIdhEducacao();
+            rowData[13] = cidades.get(i).getIdhLongevidade();
+            rowData[14] = cidades.get(i).getDensidadeDemografica();
+            rowData[15] = cidades.get(i).getPibPcTotal();
+            rowData[16] = cidades.get(i).getClassficacaoIDH();
+            rowData[17] = cidades.get(i).getPibPcTotal();
+            rowData[18] = cidades.get(i).getUltimaAtualizacao();
+            model.addRow(rowData);
+        }
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -100,9 +145,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateButton;
+    private javax.swing.JTable Table;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

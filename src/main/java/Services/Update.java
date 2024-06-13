@@ -35,11 +35,12 @@ public class Update {
 
         //Pega a hora do sistema no momento do update
         LocalDate momento = LocalDate.now();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); //usando esse formatador para colocar a hora em um formato legível
         formato.format(momento);
+        String horarioString = momento.toString();
         //Adiciona a data da atualização na cidade atualizada
-        cidade.setUltimaAtualizacao(momento.toString());
+        cidade.setUltimaAtualizacao(horarioString);
 
         cidades.add(cidade);
         writer.atualizarTodoCSV(cidades);
