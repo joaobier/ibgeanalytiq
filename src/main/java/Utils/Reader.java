@@ -16,10 +16,10 @@ public class Reader {
         //this.filePathEntrada = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
         //this.filePathSaida = "C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
         //this.filePath= "C:\\Users\\Aluno\\Desktop\\original.csv";
-        this.filePathEntrada= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
-        this.filePathSaida = "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
-        //this.filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\teste.csv";
-        //this.filePath = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
+        //this.filePathEntrada= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
+        //this.filePathSaida = "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
+        this.filePathEntrada = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        this.filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
         this.listaCidades = new ArrayList<City>();
     }
 
@@ -178,7 +178,10 @@ public class Reader {
                         parseDouble(row[15]), //densidadeDemografica
                         parseDouble(row[16]), //pibPcTotal
                         row[17], //classificacaoIDH
-                        row[18]); //ultimaAtualizacao
+                        row[18],//ultimaAtualizacao
+                        row[19], //classificacaoIDHEdu
+                        row[20] //classificacaoIDHLongevidade
+                ); 
                 //System.out.println(city.toString());
                 this.listaCidades.add(city);
 

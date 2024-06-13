@@ -15,13 +15,14 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args){
         
+        Lista lista = new Lista();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaLogin().setVisible(true);
             }
         });
         
-        Lista lista = new Lista();
+        
         //Writer writer = new Writer();
         //writer.writeOutFile();
         //writer.atualizarTodoCSV(lista.getCidades());
@@ -29,7 +30,6 @@ public class Main {
         //lista = new Lista();
         //lista.listarComoCSV();
         
-        Lista novaLista = new Lista();
         
         //É verdadeiro isso
         /*
@@ -39,16 +39,16 @@ public class Main {
         */
         //lista.listarComoCSV();
         
-        Update updater = new Update();
+        //Update updater = new Update();
         
-        City cidade = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
+        //City cidade = new City("666","Gotham City","NY","BatStado","EUA",0.2,1,1,1,1,1,1,1,1,1);
         
-        updater.UpdateById("53000",novaLista,cidade);
+        //updater.UpdateById("53000",novaLista,cidade);
         
         //ISSO TEM Q DAR FALSO
-        ArrayList<City> listaDaLista = lista.getCidades();
-        ArrayList<City> listaDaNovaLista = lista.getCidades();  
-        System.out.println(listaDaLista.equals(listaDaNovaLista));
+        //ArrayList<City> listaDaLista = lista.getCidades();
+        //ArrayList<City> listaDaNovaLista = lista.getCidades();  
+        //System.out.println(listaDaLista.equals(listaDaNovaLista));
         
 
         

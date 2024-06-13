@@ -110,7 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         ArrayList<City> cidades = lista.getCidades();
         
-        Object rowData[] = new Object[19];
+        Object rowData[] = new Object[21];
          
         for(int i = 0; i < cidades.size(); i++){
             
@@ -133,6 +133,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             rowData[16] = cidades.get(i).getClassficacaoIDH();
             rowData[17] = cidades.get(i).getPibPcTotal();
             rowData[18] = cidades.get(i).getUltimaAtualizacao();
+            rowData[19] = cidades.get(i).getClassificacaoIDHEdu();
+            rowData[20] = cidades.get(i).getClassificacaoIDHLongevidade();
             model.addRow(rowData);
         }
         

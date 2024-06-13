@@ -25,6 +25,8 @@ public class City {
     double densidadeDemografica;
     double pibPcTotal;
     String classficacaoIDH;
+    String classificacaoIDHEdu;
+    String classificacaoIDHLongevidade;
 
     //CONSTRUTOR QUE SE USA PARA LER O ARQUIVO DE ENTRADA
     public City(String id,
@@ -61,18 +63,10 @@ public class City {
         //contas para setar as 3 variáveis dependentes
         this.densidadeDemografica = (pibTotal/populacao);
         this.pibPcTotal = (pibTotal/populacao);
-
-        //Classificação de IDH
-        if(idh > 0.8){
-            this.classficacaoIDH = "MUITO ALTO";
-        }else if(idh > 0.7 && idh <= 0.8){
-            this.classficacaoIDH = "ALTO";
-        }else if(idh > 0.55 && idh <= 0.7){
-            this.classficacaoIDH = "MÉDIO";
-        }else if(idh <= 0.55){
-            this.classficacaoIDH = "BAIXO";
-        }
-
+        this.classficacaoIDH = avaliacaoIdh(idh);
+        this.classificacaoIDHEdu = avaliacaoIdh(idhEducacao);
+        this.classificacaoIDHLongevidade = avaliacaoIdh(idhLongevidade);
+        
     }
 
     //CONSTRUTOR COM TUDO PARA SE USAR MAIS PRA LER O ARQUIVO DE SAIDA
@@ -95,7 +89,10 @@ public class City {
             double densidadeDemografica,
             double pibPcTotal,
             String classficacaoIDH,
-            String ultimaAtualizacao) {
+            String ultimaAtualizacao,
+            String classificacaoIdhEdu,
+            String classificacaoIdhLongevidade
+            ){
         this.id = id;
         this.municipio = municipio;
         this.microregiao = microregiao;
@@ -115,10 +112,29 @@ public class City {
         this.densidadeDemografica = densidadeDemografica;
         this.pibPcTotal = pibPcTotal;
         this.classficacaoIDH = classficacaoIDH;
+        this.classificacaoIDHEdu = classificacaoIdhEdu;
+        this.classificacaoIDHLongevidade = classificacaoIdhLongevidade;
     }
 
     public City(){}
 
+    public String avaliacaoIdh(double idh){
+        
+        String avaliacao = "";
+        
+         if(idh > 0.8){
+            avaliacao = "MUITO ALTO";
+        }else if(idh > 0.7 && idh <= 0.8){
+            avaliacao = "ALTO";
+        }else if(idh > 0.55 && idh <= 0.7){
+            avaliacao = "MÉDIO";
+        }else if(idh <= 0.55){
+            avaliacao = "BAIXO";
+        }
+         
+        return avaliacao;
+    }
+    
     //GETTERS E SETTERS
     public String getId() {
         return id;
@@ -248,17 +264,21 @@ public class City {
 
     public double getPibPcTotal() {return pibPcTotal;}
 
-    public void setPibPcTotal(double pibPcTotal) {
-        this.pibPcTotal = pibPcTotal;
-    }
+    public void setPibPcTotal(double pibPcTotal) {this.pibPcTotal = pibPcTotal;}
 
-    public String getClassficacaoIDH() {
-        return classficacaoIDH;
-    }
+    public String getClassficacaoIDH() {return classficacaoIDH;}
 
-    public void setClassficacaoIDH(String classficacaoIDH) {
-        this.classficacaoIDH = classficacaoIDH;
-    }
+    public void setClassficacaoIDH(String classficacaoIDH) {this.classficacaoIDH = classficacaoIDH;}
+
+    public String getClassificacaoIDHEdu() {return classificacaoIDHEdu;}
+
+    public void setClassificacaoIDHEdu(String classificacaoIDHEdu) {this.classificacaoIDHEdu = classificacaoIDHEdu;}
+
+    public String getClassificacaoIDHLongevidade() {return classificacaoIDHLongevidade;}
+
+    public void setClassificacaoIDHLongevidade(String classificacaoIDHLongevidade) {this.classificacaoIDHLongevidade = classificacaoIDHLongevidade;}
+    
+    
 
     public void setUltimaAtualizacao(String momento) {this.ultimaAtualizacao = momento;}
 
@@ -286,6 +306,8 @@ public class City {
                 ", densidade=" + mostrarNumeroFormatado(densidadeDemografica,4) +
                 ", pib Per Capta Total=" + mostrarNumeroFormatado(pibPcTotal,5) +
                 ", classficacaoIDH=" + classficacaoIDH +
+                ", classificaoIDHEdu=" + classificacaoIDHEdu +
+                ", classificacaoIDHLongevidade" + classificacaoIDHLongevidade +
                 ", ultimaAlteracao= " + ultimaAtualizacao +
                 '}';
     }
@@ -333,7 +355,9 @@ public class City {
                         mostrarNumeroFormatado(densidadeDemografica,5)+ ";" +
                         mostrarNumeroFormatado(pibPcTotal,5)+ ";" +
                         classficacaoIDH + ";" +
-                        ultimaAtualizacao +"\n";
+                        ultimaAtualizacao + ";"+
+                        classificacaoIDHEdu + ";" +
+                        classificacaoIDHLongevidade +"\n";
     }
 
     //FUNÇÃO PARA ARRUMAR OS NUMEROS QUE ESTÃO FICANDO EM NOTAÇÃO CIÊNTIFICA

@@ -36,7 +36,7 @@ public class Lista {
 
             //aproveita e já cria o arquivo de saida
             Writer writer = new Writer();
-            writer.writeOutFile();
+            //writer.writeOutFile();
             writer.atualizarTodoCSV(this.cidades); //já preenche o arquivo de saída
         }
 
