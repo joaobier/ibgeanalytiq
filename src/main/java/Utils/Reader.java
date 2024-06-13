@@ -16,10 +16,10 @@ public class Reader {
         //this.filePathEntrada = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
         //this.filePathSaida = "C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
         //this.filePath= "C:\\Users\\Aluno\\Desktop\\original.csv";
-        //this.filePathEntrada= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
-        //this.filePathSaida = "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
-        this.filePathEntrada = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
-        this.filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
+        this.filePathEntrada= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\01.ProjetoIntegrador_BaseMunicipios_In.csv";
+        this.filePathSaida = "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
+        //this.filePathEntrada = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Dados Projeto Integrador\\original.csv";
+        //this.filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
         this.listaCidades = new ArrayList<City>();
     }
 

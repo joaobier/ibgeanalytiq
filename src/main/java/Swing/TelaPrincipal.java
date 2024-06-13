@@ -24,6 +24,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         preencherTabela();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(TelaPrincipal.EXIT_ON_CLOSE);
+    }
+    
+    public void refreshTable() {
+        // Força a tabela a se atualizar
+        
     }
     
     /**
@@ -40,8 +46,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         CreateButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        DeletarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("IBGE AnalytiQ");
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,12 +70,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table);
 
+        jButton1.setBackground(new java.awt.Color(255, 79, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
+        CreateButton.setBackground(new java.awt.Color(0, 102, 0));
+        CreateButton.setForeground(new java.awt.Color(255, 255, 255));
         CreateButton.setText("Adicionar");
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CreateButtonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(63, 75, 152));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        DeletarButton.setBackground(new java.awt.Color(118, 0, 0));
+        DeletarButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeletarButton.setText("Deletar");
+        DeletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarButtonActionPerformed(evt);
             }
         });
 
@@ -76,12 +112,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CreateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeletarButton)
+                .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -89,9 +129,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
-                    .addComponent(CreateButton))
+                    .addComponent(CreateButton)
+                    .addComponent(jButton2)
+                    .addComponent(DeletarButton))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
         );
@@ -102,8 +144,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
         Criar telaCriar = new Criar();
         telaCriar.setVisible(true);
+        
     }//GEN-LAST:event_CreateButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int linhaSelecionada = Table.getSelectedRow();
+        if(linhaSelecionada != -1){
+            Editar telaEditar = new Editar(linhaSelecionada);
+            telaEditar.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void DeletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarButtonActionPerformed
+        int linhaSelecionada = Table.getSelectedRow();
+        if(linhaSelecionada != -1){
+            Deletar telaDeletar = new Deletar(linhaSelecionada);
+            telaDeletar.setVisible(true);
+        }
+    }//GEN-LAST:event_DeletarButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Buscar
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+  
+    
     private void preencherTabela(){
         
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
@@ -147,8 +213,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateButton;
+    private javax.swing.JButton DeletarButton;
     private javax.swing.JTable Table;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

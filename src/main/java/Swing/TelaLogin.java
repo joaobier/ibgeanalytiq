@@ -55,7 +55,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Senha:");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sa_Th\\Documents\\NetBeansProjects\\ibgeanalytiq\\src\\main\\resources\\images\\abrir-cadeado.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/abrir-cadeado.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class Writer {
 
-    String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
+    //String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
     //String filePath = "C:\\Users\\Aluno\\Desktop\\original.csv";
     //String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
-    //String filePath= "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
+    String filePath= "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
 
     public Writer(){
         writeOutFile();
@@ -43,8 +43,8 @@ public class Writer {
 
     public void writeOutFile(){
 
-        String pasta = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out";
-        //String pasta = "C:\\Users\\Aluno\\Desktop\\Out";
+        //String pasta = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out";
+        String pasta = "C:\\Users\\Sa_Th\\Desktop\\Out";
         String arquivo = pasta+ "\\out.csv";
 
         File diretorio = new File(pasta);

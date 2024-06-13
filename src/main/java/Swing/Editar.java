@@ -25,6 +25,7 @@ public class Editar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setDefaultCloseOperation(Editar.DISPOSE_ON_CLOSE);
         
         this.indexDaCidadeEditada = index;
         
@@ -102,6 +103,7 @@ public class Editar extends javax.swing.JFrame {
         jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editar");
 
         idhEduca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

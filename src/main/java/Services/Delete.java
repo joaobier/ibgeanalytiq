@@ -13,12 +13,15 @@ public class Delete {
         writer = new Writer();
     }
 
-    public boolean DeleteById(int id, Lista lista, City cidade) {
+    public void DeleteById(int id, Lista lista /* , City cidade*/) {
         //Controlado pela Interface Gráfica
         ArrayList<City> cidades = lista.getCidades();
-        cidades.remove(cidade);
+        City cidade = cidades.get(id);
+        System.out.println(cidade.toString());
+        cidades.remove(id);
+        //cidades.remove(cidade);
         lista.setCidades(cidades);
         writer.atualizarTodoCSV(cidades);
-        return true;
+        
     }
 }

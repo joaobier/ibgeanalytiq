@@ -23,7 +23,7 @@ public class Criar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
+        this.setDefaultCloseOperation(Criar.DISPOSE_ON_CLOSE);
     }
         
         
@@ -72,6 +72,7 @@ public class Criar extends javax.swing.JFrame {
         jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Criar");
 
         idhEduca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

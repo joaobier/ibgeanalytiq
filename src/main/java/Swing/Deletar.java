@@ -19,16 +19,20 @@ public class Deletar extends javax.swing.JFrame {
     /**
      * Creates new form Delete
      */
-    int id;
+    private int id;
+    private Lista lista;
+    private City cidade;
+    
     public Deletar(int id) {  
         initComponents();
         this.id = id;
-        setTitle("Delete city");
-       // Delete delete = new Delete();
-        //Lista lista = new Lista();
-        //City cidade = lista.getCidades().get(id);
-        idCitySelect.setText(String.valueOf(id));
+        setTitle("Deletar");
+        //Delete delete = new Delete();
+        this.lista = new Lista();
+        this.cidade = lista.getCidades().get(id);
+        idCitySelect.setText(cidade.getMunicipio());
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(Deletar.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -41,7 +45,6 @@ public class Deletar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         buttomYesDelCity = new javax.swing.JButton();
@@ -51,8 +54,6 @@ public class Deletar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/alerta (2).png"))); // NOI18N
 
         jLabel2.setText("Alert");
 
@@ -79,9 +80,7 @@ public class Deletar extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(idCitySelect)
@@ -95,12 +94,8 @@ public class Deletar extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel2)))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(idCitySelect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,15 +124,19 @@ public class Deletar extends javax.swing.JFrame {
     private void buttomYesDelCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttomYesDelCityActionPerformed
 
         Delete delete = new Delete();
-        Lista lista = new Lista();
-        lista.atualizarLista();
         
+        lista.atualizarLista();
         City cidade = lista.getCidades().get(id);  
-        delete.DeleteById(id, lista,cidade);
+        delete.DeleteById(id, lista);
+        
+        
+        
+        dispose();
         
         
     }//GEN-LAST:event_buttomYesDelCityActionPerformed
 
+    
     private void buttonNoDelCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNoDelCityActionPerformed
         dispose();
     }//GEN-LAST:event_buttonNoDelCityActionPerformed
@@ -151,7 +150,6 @@ public class Deletar extends javax.swing.JFrame {
     private javax.swing.JButton buttomYesDelCity;
     private javax.swing.JButton buttonNoDelCity;
     private javax.swing.JLabel idCitySelect;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
