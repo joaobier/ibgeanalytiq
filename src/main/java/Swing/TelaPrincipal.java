@@ -43,10 +43,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        TextFieldBuscar = new javax.swing.JTextField();
+        BuscarButton = new javax.swing.JButton();
         CreateButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        EditarButton = new javax.swing.JButton();
         DeletarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,12 +70,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table);
 
-        jButton1.setBackground(new java.awt.Color(255, 79, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BuscarButton.setBackground(new java.awt.Color(255, 79, 0));
+        BuscarButton.setForeground(new java.awt.Color(255, 255, 255));
+        BuscarButton.setText("Buscar");
+        BuscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BuscarButtonActionPerformed(evt);
             }
         });
 
@@ -88,12 +88,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(63, 75, 152));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Editar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarButton.setBackground(new java.awt.Color(63, 75, 152));
+        EditarButton.setForeground(new java.awt.Color(255, 255, 255));
+        EditarButton.setText("Editar");
+        EditarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarButtonActionPerformed(evt);
             }
         });
 
@@ -112,13 +112,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(BuscarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CreateButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(EditarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DeletarButton)
                 .addContainerGap())
@@ -129,10 +129,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(TextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarButton)
                     .addComponent(CreateButton)
-                    .addComponent(jButton2)
+                    .addComponent(EditarButton)
                     .addComponent(DeletarButton))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
@@ -147,14 +147,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CreateButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void EditarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarButtonActionPerformed
         int linhaSelecionada = Table.getSelectedRow();
         if(linhaSelecionada != -1){
             Editar telaEditar = new Editar(linhaSelecionada);
             telaEditar.setVisible(true);
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_EditarButtonActionPerformed
 
     private void DeletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarButtonActionPerformed
         int linhaSelecionada = Table.getSelectedRow();
@@ -164,9 +164,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeletarButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Buscar
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarButtonActionPerformed
+        String IdBusca = TextFieldBuscar.getText();
+        Buscar telaBuscar = new Buscar(Integer.parseInt(IdBusca));
+        telaBuscar.setVisible(true);
+    }//GEN-LAST:event_BuscarButtonActionPerformed
 
   
     
@@ -212,12 +214,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BuscarButton;
     private javax.swing.JButton CreateButton;
     private javax.swing.JButton DeletarButton;
+    private javax.swing.JButton EditarButton;
     private javax.swing.JTable Table;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField TextFieldBuscar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
