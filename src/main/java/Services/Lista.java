@@ -20,9 +20,9 @@ public class Lista {
     File fileOut; //declara o arquivo para verificar se ele existe
 
     public Lista(){ 
-        this.filePathSaida ="C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
+        this.filePathSaida ="C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
         fileOut = new File(filePathSaida);
-        System.out.println("FILEOUT ESTÁ RETORNANDO UM: " + fileOut.exists());
+        System.out.println("FILEOUT ESTÁ VERIFICANDO O LOCAL:" + fileOut.getAbsolutePath()+ " E RETORNANDO UM: " + fileOut.exists());
         preencherLista();
 
     }
