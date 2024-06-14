@@ -16,11 +16,13 @@ public class Lista {
     private Reader leitor = new Reader();
     protected ArrayList<City> cidades;
     //private String filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv"; //path do arquivo de saída
-    private String filePathSaida ="C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
-    File fileOut = new File(filePathSaida); //declara o arquivo para verificar se ele existe
+    private String filePathSaida;
+    File fileOut; //declara o arquivo para verificar se ele existe
 
-    public Lista(){
-
+    public Lista(){ 
+        this.filePathSaida ="C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
+        fileOut = new File(filePathSaida);
+        System.out.println("FILEOUT ESTÁ RETORNANDO UM: " + fileOut.exists());
         preencherLista();
 
     }
@@ -29,16 +31,16 @@ public class Lista {
         //this.cidades = this.leitor.lerArquivo();
         try {
             if (fileOut.exists() && fileOut.length() > 0) {
-                System.out.println("ESTOU LENDO O ENTRADA");
+                System.out.println("ESTOU LENDO O  OUT");
+                this.cidades = leitor.lerArquivoSaida(); // lê o que tem no arquivo de saída
+            } else {
+                
+                System.out.println("ESTOU LENDO A ENTRADA");
                 this.cidades = leitor.lerArquivoEntrada(); // lê o que tem no arquivo de entrada
 
                 // Aproveita e já cria o arquivo de saída
                 Writer writer = new Writer();
                 writer.atualizarTodoCSV(this.cidades); // já preenche o arquivo de saída
-            } else {
-                System.out.println("ESTOU LENDO O  OUT");
-                this.cidades = leitor.lerArquivoSaida(); // lê o que tem no arquivo de saída
-                
             }
         } catch (Exception e) {
             System.err.println("Erro ao processar arquivos: " + e.getMessage());
