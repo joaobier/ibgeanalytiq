@@ -9,8 +9,8 @@ public class Writer {
 
     //String filePath = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
     //String filePath = "C:\\Users\\Aluno\\Desktop\\original.csv";
-    //String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\teste.csv";
-    String filePath= "C:\\Users\\gusta\\OneDrive\\Desktop\\DadosPI\\out.csv";
+    String filePath= "C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
+    //String filePath= "C:\\Users\\Sa_Th\\Desktop\\DadosPI\\out.csv";
 
     public Writer(){
         writeOutFile();

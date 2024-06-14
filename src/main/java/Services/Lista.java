@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Lista {
@@ -26,8 +27,25 @@ public class Lista {
 
     public void preencherLista(){
         //this.cidades = this.leitor.lerArquivo();
+        try {
+            if (fileOut.exists() && fileOut.length() > 0) {
+                System.out.println("ESTOU LENDO O ENTRADA");
+                this.cidades = leitor.lerArquivoEntrada(); // lê o que tem no arquivo de entrada
 
-        if(fileOut.exists() && fileOut.length() > 0){
+                // Aproveita e já cria o arquivo de saída
+                Writer writer = new Writer();
+                writer.atualizarTodoCSV(this.cidades); // já preenche o arquivo de saída
+            } else {
+                System.out.println("ESTOU LENDO O  OUT");
+                this.cidades = leitor.lerArquivoSaida(); // lê o que tem no arquivo de saída
+                
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao processar arquivos: " + e.getMessage());
+            e.printStackTrace();
+        }
+        /*
+        if(fileOut.exists() /*&& fileOut.length() > 0*//*){
             System.out.println("O arquivo de saída já existe, irei ler");
             this.cidades = leitor.lerArquivoSaida(); //lê o que tem no arquivo de saída
         }else{
@@ -39,7 +57,7 @@ public class Lista {
             //writer.writeOutFile();
             writer.atualizarTodoCSV(this.cidades); //já preenche o arquivo de saída
         }
-
+        */
 
     }
 

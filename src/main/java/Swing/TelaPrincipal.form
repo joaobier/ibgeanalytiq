@@ -85,8 +85,8 @@
                 <Column editable="false" title="IDH Educa&#xe7;&#xe3;o" type="java.lang.Object"/>
                 <Column editable="false" title="IDH Longevidade" type="java.lang.Object"/>
                 <Column editable="false" title="Densidade Demogr&#xe1;fica" type="java.lang.Object"/>
-                <Column editable="false" title="PIB perCapta" type="java.lang.Object"/>
                 <Column editable="false" title="Classifica&#xe7;&#xe3;o IDH" type="java.lang.Object"/>
+                <Column editable="false" title="PIB perCapta" type="java.lang.Object"/>
                 <Column editable="false" title="&#xda;ltima Altera&#xe7;&#xe3;o" type="java.lang.Object"/>
                 <Column editable="false" title="Classifica&#xe7;&#xe3;o Edu" type="java.lang.Object"/>
                 <Column editable="false" title="Classifica&#xe7;&#xe3;o Longe" type="java.lang.Object"/>

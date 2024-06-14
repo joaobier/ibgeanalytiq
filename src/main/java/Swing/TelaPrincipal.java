@@ -57,7 +57,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código IBGE", "Municípios", "Microrregião", "Estado", "Região Geográfica", "Área Km²", "População", "Domicílios", "PIB Total (R$ mil)", "IDH", "Renda Média", "Renda Nominal", "PEA Dia", "IDH Educação", "IDH Longevidade", "Densidade Demográfica", "PIB perCapta", "Classificação IDH", "Última Alteração", "Classificação Edu", "Classificação Longe"
+                "Código IBGE", "Municípios", "Microrregião", "Estado", "Região Geográfica", "Área Km²", "População", "Domicílios", "PIB Total (R$ mil)", "IDH", "Renda Média", "Renda Nominal", "PEA Dia", "IDH Educação", "IDH Longevidade", "Densidade Demográfica", "Classificação IDH", "PIB perCapta", "Última Alteração", "Classificação Edu", "Classificação Longe"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -159,9 +159,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void DeletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarButtonActionPerformed
         int linhaSelecionada = Table.getSelectedRow();
         if(linhaSelecionada != -1){
-            Deletar telaDeletar = new Deletar(linhaSelecionada);
+            Deletar telaDeletar = new Deletar(linhaSelecionada, this, this.lista);
             telaDeletar.setVisible(true);
         }
+        /*
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        int linhaSelecionada = Table.getSelectedRow();
+        if(linhaSelecionada != -1){
+            Deletar telaDeletar = new Deletar(linhaSelecionada, this);
+            telaDeletar.setVisible(true);
+        }
+        model.removeRow(Table.getSelectedRow());
+        */
     }//GEN-LAST:event_DeletarButtonActionPerformed
 
     private void BuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarButtonActionPerformed
@@ -170,7 +179,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaBuscar.setVisible(true);
     }//GEN-LAST:event_BuscarButtonActionPerformed
 
-  
+    public void removeRow(int row){
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        int linhaSelecionada = row;
+        if(linhaSelecionada != -1){
+            model.removeRow(Table.getSelectedRow());
+            
+            //Deletar telaDeletar = new Deletar(linhaSelecionada, this);
+            //telaDeletar.setVisible(true);
+        }
+        
+    }
     
     private void preencherTabela(){
         

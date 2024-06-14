@@ -22,15 +22,15 @@ public class Deletar extends javax.swing.JFrame {
     private int id;
     private Lista lista;
     private City cidade;
-    
-    public Deletar(int id) {  
+    private TelaPrincipal telaPrincipal;
+    public Deletar(int id, TelaPrincipal telaPrincipal, Lista lista) {
         initComponents();
         this.id = id;
+        this.telaPrincipal = telaPrincipal;
         setTitle("Deletar");
         //Delete delete = new Delete();
-        this.lista = new Lista();
-        this.cidade = lista.getCidades().get(id);
-        idCitySelect.setText(cidade.getMunicipio());
+        this.lista = lista;
+        lista.atualizarLista();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(Deletar.DISPOSE_ON_CLOSE);
     }
@@ -125,14 +125,11 @@ public class Deletar extends javax.swing.JFrame {
 
         Delete delete = new Delete();
         
-        lista.atualizarLista();
+        
         City cidade = lista.getCidades().get(id);  
         delete.DeleteById(id, lista);
-        
-        
-        
+        this.telaPrincipal.removeRow(id);
         dispose();
-        
         
     }//GEN-LAST:event_buttomYesDelCityActionPerformed
 
