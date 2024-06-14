@@ -49,6 +49,7 @@ public class Buscar extends javax.swing.JFrame {
             }
         }
        
+        System.out.println(cidadeBuscar.toString());
         
         //Preenchendo os textfield
         idField.setText(cidadeBuscar.getId());
@@ -318,9 +319,9 @@ public class Buscar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Update update = new Update();
+        //Update update = new Update();
         
-                
+        /*        
         String id = idField.getText();
         String municipio = municipioField.getText();
         String estado = estadoField.getText();
@@ -361,6 +362,7 @@ public class Buscar extends javax.swing.JFrame {
         );
         String idUpdate = String.valueOf(indexDaCidadeBuscada);
         update.UpdateById(idUpdate ,this.lista, cidade);
+        */
         dispose();
         
         //update.UpdateById(i, lista, cidadeEditar);
