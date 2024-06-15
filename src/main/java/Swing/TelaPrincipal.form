@@ -29,6 +29,8 @@
               <Component id="TextFieldBuscar" min="-2" pref="128" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="BuscarButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+              <Component id="UjeversonButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="CreateButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -50,6 +52,7 @@
                   <Component id="CreateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="EditarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DeletarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UjeversonButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="496" max="32767" attributes="0"/>
@@ -264,6 +267,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeletarButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="UjeversonButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UjeversonButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
