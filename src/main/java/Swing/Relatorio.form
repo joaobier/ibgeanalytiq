@@ -44,7 +44,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="IDHLongeMelhorPib" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="PibMelhorPib" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="DetalhesMelhorPib" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -66,12 +70,16 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="IDHLongePiorPib" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="PibPiorPib" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="DetalhesPiorPib" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -92,8 +100,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="IDHLongeMelhorIDH" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="PibMelhorIDH" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="DatelhesMelhorIdh" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -113,12 +125,21 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="IDHLongePiorIDH" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="PibPiorIDH" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="DetalhesPìorIdh" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="FecharButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,11 +158,14 @@
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CidadeMelhorPIB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHMelhorPib" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHEduMelhorPib" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHLongeMelhorPib" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PibMelhorPib" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="CidadeMelhorPIB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHMelhorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHEduMelhorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DetalhesMelhorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -154,16 +178,19 @@
                           <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CidadeMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHEduMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHLongeMelhorIDH" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PibMelhorIDH" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="CidadeMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHEduMelhorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DatelhesMelhorIdh" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -175,11 +202,14 @@
                           <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CidadePiorPIB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHPiorPib" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHEduPiorPib" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHLongePiorPib" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PibPiorPib" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="CidadePiorPIB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHPiorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHEduPiorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DetalhesPiorPib" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -192,15 +222,20 @@
                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CidadePiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHPiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHEduPiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDHLongePiorIDH" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PibPiorIDH" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="CidadePiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHPiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDHEduPiorIDH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DetalhesPìorIdh" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <Component id="FecharButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -212,6 +247,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CidadeMelhorPIB">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -230,14 +268,23 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IDH Longevidade"/>
+        <Property name="text" type="java.lang.String" value="Pib Per Capta"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHMelhorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHEduMelhorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="IDHLongeMelhorPib">
+    <Component class="javax.swing.JTextField" name="PibMelhorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -255,12 +302,24 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHPiorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHEduPiorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="IDHLongePiorPib">
+    <Component class="javax.swing.JTextField" name="PibPiorPib">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CidadePiorPIB">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel21">
       <Properties>
@@ -279,16 +338,28 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel24">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IDH Longevidade"/>
+        <Property name="text" type="java.lang.String" value="Pib Per Capta"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHMelhorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHEduMelhorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="IDHLongeMelhorIDH">
+    <Component class="javax.swing.JTextField" name="PibMelhorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CidadeMelhorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel25">
       <Properties>
@@ -307,16 +378,28 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel28">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IDH Longevidade"/>
+        <Property name="text" type="java.lang.String" value="Pib Per Capta"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHPiorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IDHEduPiorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="IDHLongePiorIDH">
+    <Component class="javax.swing.JTextField" name="PibPiorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CidadePiorIDH">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel29">
       <Properties>
@@ -335,8 +418,48 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel32">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IDH Longevidade"/>
+        <Property name="text" type="java.lang.String" value="Pib Per Capta"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="FecharButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FecharButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DetalhesMelhorPib">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Detalhes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DetalhesMelhorPibActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DetalhesPiorPib">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Detalhes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DetalhesPiorPibActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DatelhesMelhorIdh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Detalhes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DatelhesMelhorIdhActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DetalhesP&#xec;orIdh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Detalhes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DetalhesP&#xec;orIdhActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

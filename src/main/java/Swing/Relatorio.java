@@ -17,17 +17,109 @@ public class Relatorio extends javax.swing.JFrame {
      * Creates new form Relatorio
      */
     Lista lista;
+    City melhorPib;
+    City piorPib;
+    City melhorIdhEdu;
+    City piorIdhEdu;
     public Relatorio(Lista lista) {
         this.lista = lista;
         initComponents();
+        
+        //Inicializando as cidades
+        melhorPib = MelhorPib();
+        piorPib = PiorPib();
+        melhorIdhEdu = melhorIdhEdu();
+        piorIdhEdu = piorIdhEdu();
+        
+        //Mostrando no terminal só pra ver
+        System.out.println("Melhor PibPc: " +melhorPib.toString());
+        System.out.println("Pior PibPc: " +piorPib.toString());
+        System.out.println("Melhor Educação: " +melhorIdhEdu.toString());
+        System.out.println("Pior Educação: " +piorIdhEdu.toString());
+        
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(Buscar.DISPOSE_ON_CLOSE);
+        
+        //Atribuindo aos campos
+        
+        //melhor pib
+        CidadeMelhorPIB.setText(melhorPib.getMunicipio());
+        IDHMelhorPib.setText(String.valueOf(melhorPib.getId()));
+        IDHEduMelhorPib.setText(String.valueOf(melhorPib.getIdhEducacao()));
+        PibMelhorPib.setText(String.valueOf(melhorPib.getPibPcTotal()));
+        
+        //pior pib
+        CidadePiorPIB.setText(piorPib.getMunicipio());
+        IDHPiorPib.setText(String.valueOf(piorPib.getIdh()));
+        IDHEduPiorPib.setText(String.valueOf(piorPib.getIdhEducacao()));
+        PibPiorPib.setText(String.valueOf(piorPib.getPibPcTotal()));
+        
+        //melhor idh
+        CidadeMelhorIDH.setText(melhorIdhEdu.getMunicipio());
+        IDHMelhorIDH.setText(String.valueOf(melhorIdhEdu.getIdh()));
+        IDHEduMelhorIDH.setText(String.valueOf(melhorIdhEdu.getIdhEducacao()));
+        PibMelhorIDH.setText(String.valueOf(melhorIdhEdu.getPibPcTotal()));
+        
+        //pior idh
+        CidadePiorIDH.setText(piorIdhEdu.getMunicipio());
+        IDHPiorIDH.setText(String.valueOf(piorIdhEdu.getIdh()));
+        IDHEduPiorIDH.setText(String.valueOf(piorIdhEdu.getIdhEducacao()));
+        PibPiorIDH.setText(String.valueOf(piorIdhEdu.getPibPcTotal()));
+        
+        
     }
 
-    private City AchandoMelhorPib(){
+    private City MelhorPib(){
         
-        City melhorPib = null;
+        City melhorPib = lista.getCidades().get(0);
         
+        for(int i = 1; i < lista.getCidades().size();i++){
+            
+            if(lista.getCidades().get(i).getPibPcTotal() > melhorPib.getPibPcTotal()){
+                melhorPib = lista.getCidades().get(i);
+            }
+            
+        }
         return melhorPib;
         
+    }
+    
+    private City PiorPib(){
+        City piorPib = lista.getCidades().get(0);
+        for(int i = 1; i < lista.getCidades().size();i++){
+            
+            if(piorPib.getPibPcTotal() > lista.getCidades().get(i).getPibPcTotal()){
+                piorPib = lista.getCidades().get(i);
+            }
+            
+        }
+        return piorPib;
+    }
+    
+    private City melhorIdhEdu(){
+        City melhorIdhEdu = lista.getCidades().get(0);
+        for(int i = 1; i < lista.getCidades().size();i++){
+            
+            if(lista.getCidades().get(i).getIdhEducacao() > melhorIdhEdu.getIdhEducacao()){
+                melhorIdhEdu = lista.getCidades().get(i);
+            }
+            
+        }
+        
+        return melhorIdhEdu;
+    }
+    
+    private City piorIdhEdu(){
+        City piorIdhEdu = lista.getCidades().get(0);
+        for(int i = 1; i < lista.getCidades().size();i++){
+            
+            if(melhorIdhEdu.getIdhEducacao() > lista.getCidades().get(i).getIdhEducacao()){
+                melhorIdhEdu = lista.getCidades().get(i);
+            }
+            
+        }
+        return piorIdhEdu;
     }
     
     /**
@@ -47,13 +139,13 @@ public class Relatorio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         IDHMelhorPib = new javax.swing.JTextField();
         IDHEduMelhorPib = new javax.swing.JTextField();
-        IDHLongeMelhorPib = new javax.swing.JTextField();
+        PibMelhorPib = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         IDHPiorPib = new javax.swing.JTextField();
         IDHEduPiorPib = new javax.swing.JTextField();
-        IDHLongePiorPib = new javax.swing.JTextField();
+        PibPiorPib = new javax.swing.JTextField();
         CidadePiorPIB = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -61,7 +153,7 @@ public class Relatorio extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         IDHMelhorIDH = new javax.swing.JTextField();
         IDHEduMelhorIDH = new javax.swing.JTextField();
-        IDHLongeMelhorIDH = new javax.swing.JTextField();
+        PibMelhorIDH = new javax.swing.JTextField();
         CidadeMelhorIDH = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -69,16 +161,23 @@ public class Relatorio extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         IDHPiorIDH = new javax.swing.JTextField();
         IDHEduPiorIDH = new javax.swing.JTextField();
-        IDHLongePiorIDH = new javax.swing.JTextField();
+        PibPiorIDH = new javax.swing.JTextField();
         CidadePiorIDH = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        FecharButton = new javax.swing.JButton();
+        DetalhesMelhorPib = new javax.swing.JButton();
+        DetalhesPiorPib = new javax.swing.JButton();
+        DatelhesMelhorIdh = new javax.swing.JButton();
+        DetalhesPìorIdh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Melhor Pib Per Capta");
+
+        CidadeMelhorPIB.setEditable(false);
 
         jLabel2.setText("Cidade");
 
@@ -86,7 +185,13 @@ public class Relatorio extends javax.swing.JFrame {
 
         jLabel4.setText("IDH Educacional");
 
-        jLabel5.setText("IDH Longevidade");
+        jLabel5.setText("Pib Per Capta");
+
+        IDHMelhorPib.setEditable(false);
+
+        IDHEduMelhorPib.setEditable(false);
+
+        PibMelhorPib.setEditable(false);
 
         jLabel6.setText("Pior Pib Per Capta");
 
@@ -94,13 +199,29 @@ public class Relatorio extends javax.swing.JFrame {
 
         jLabel16.setText("Pior IDH Educacional");
 
+        IDHPiorPib.setEditable(false);
+
+        IDHEduPiorPib.setEditable(false);
+
+        PibPiorPib.setEditable(false);
+
+        CidadePiorPIB.setEditable(false);
+
         jLabel21.setText("Cidade");
 
         jLabel22.setText("IDH");
 
         jLabel23.setText("IDH Educacional");
 
-        jLabel24.setText("IDH Longevidade");
+        jLabel24.setText("Pib Per Capta");
+
+        IDHMelhorIDH.setEditable(false);
+
+        IDHEduMelhorIDH.setEditable(false);
+
+        PibMelhorIDH.setEditable(false);
+
+        CidadeMelhorIDH.setEditable(false);
 
         jLabel25.setText("Cidade");
 
@@ -108,7 +229,15 @@ public class Relatorio extends javax.swing.JFrame {
 
         jLabel27.setText("IDH Educacional");
 
-        jLabel28.setText("IDH Longevidade");
+        jLabel28.setText("Pib Per Capta");
+
+        IDHPiorIDH.setEditable(false);
+
+        IDHEduPiorIDH.setEditable(false);
+
+        PibPiorIDH.setEditable(false);
+
+        CidadePiorIDH.setEditable(false);
 
         jLabel29.setText("Cidade");
 
@@ -116,7 +245,42 @@ public class Relatorio extends javax.swing.JFrame {
 
         jLabel31.setText("IDH Educacional");
 
-        jLabel32.setText("IDH Longevidade");
+        jLabel32.setText("Pib Per Capta");
+
+        FecharButton.setText("Fechar");
+        FecharButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FecharButtonActionPerformed(evt);
+            }
+        });
+
+        DetalhesMelhorPib.setText("Detalhes");
+        DetalhesMelhorPib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetalhesMelhorPibActionPerformed(evt);
+            }
+        });
+
+        DetalhesPiorPib.setText("Detalhes");
+        DetalhesPiorPib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetalhesPiorPibActionPerformed(evt);
+            }
+        });
+
+        DatelhesMelhorIdh.setText("Detalhes");
+        DatelhesMelhorIdh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatelhesMelhorIdhActionPerformed(evt);
+            }
+        });
+
+        DetalhesPìorIdh.setText("Detalhes");
+        DetalhesPìorIdh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetalhesPìorIdhActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +304,10 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(IDHEduMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDHLongeMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PibMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DetalhesMelhorPib))
                             .addComponent(jLabel5)))
                     .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
@@ -157,9 +324,12 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(IDHEduPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDHLongePiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PibPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DetalhesPiorPib))
                             .addComponent(jLabel24))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel16)
@@ -177,8 +347,11 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(IDHEduMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDHLongeMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28)))
+                            .addComponent(jLabel28)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PibMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DatelhesMelhorIdh))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CidadePiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,9 +366,16 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(IDHEduPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDHLongePiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32))))
-                .addGap(104, 104, 104))
+                            .addComponent(jLabel32)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PibPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DetalhesPìorIdh)))))
+                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(FecharButton)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,11 +391,13 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CidadeMelhorPIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHEduMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHLongeMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibMelhorPib, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadeMelhorPIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduMelhorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DetalhesMelhorPib))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
@@ -225,13 +407,15 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(jLabel27)
                             .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CidadeMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHEduMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHLongeMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)))
-                .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibMelhorIDH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadeMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduMelhorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DatelhesMelhorIdh)))
+                        .addGap(7, 7, 7)))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -242,11 +426,13 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(jLabel23)
                             .addComponent(jLabel24))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CidadePiorPIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHEduPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHLongePiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibPiorPib, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadePiorPIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DetalhesPiorPib))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
@@ -256,16 +442,44 @@ public class Relatorio extends javax.swing.JFrame {
                             .addComponent(jLabel31)
                             .addComponent(jLabel32))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CidadePiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHEduPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDHLongePiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibPiorIDH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadePiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DetalhesPìorIdh)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(FecharButton)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void FecharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_FecharButtonActionPerformed
+
+    private void DetalhesMelhorPibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalhesMelhorPibActionPerformed
+        Detalhes detalhes = new Detalhes(this.melhorPib);
+        detalhes.setVisible(true);
+    }//GEN-LAST:event_DetalhesMelhorPibActionPerformed
+
+    private void DetalhesPiorPibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalhesPiorPibActionPerformed
+        Detalhes detalhes = new Detalhes(this.piorPib);
+        detalhes.setVisible(true);        
+    }//GEN-LAST:event_DetalhesPiorPibActionPerformed
+
+    private void DatelhesMelhorIdhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatelhesMelhorIdhActionPerformed
+        Detalhes detalhes = new Detalhes(this.melhorIdhEdu);
+        detalhes.setVisible(true);
+    }//GEN-LAST:event_DatelhesMelhorIdhActionPerformed
+
+    private void DetalhesPìorIdhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalhesPìorIdhActionPerformed
+        Detalhes detalhes = new Detalhes(this.piorIdhEdu);
+        detalhes.setVisible(true);
+    }//GEN-LAST:event_DetalhesPìorIdhActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,18 +490,23 @@ public class Relatorio extends javax.swing.JFrame {
     private javax.swing.JTextField CidadeMelhorPIB;
     private javax.swing.JTextField CidadePiorIDH;
     private javax.swing.JTextField CidadePiorPIB;
+    private javax.swing.JButton DatelhesMelhorIdh;
+    private javax.swing.JButton DetalhesMelhorPib;
+    private javax.swing.JButton DetalhesPiorPib;
+    private javax.swing.JButton DetalhesPìorIdh;
+    private javax.swing.JButton FecharButton;
     private javax.swing.JTextField IDHEduMelhorIDH;
     private javax.swing.JTextField IDHEduMelhorPib;
     private javax.swing.JTextField IDHEduPiorIDH;
     private javax.swing.JTextField IDHEduPiorPib;
-    private javax.swing.JTextField IDHLongeMelhorIDH;
-    private javax.swing.JTextField IDHLongeMelhorPib;
-    private javax.swing.JTextField IDHLongePiorIDH;
-    private javax.swing.JTextField IDHLongePiorPib;
     private javax.swing.JTextField IDHMelhorIDH;
     private javax.swing.JTextField IDHMelhorPib;
     private javax.swing.JTextField IDHPiorIDH;
     private javax.swing.JTextField IDHPiorPib;
+    private javax.swing.JTextField PibMelhorIDH;
+    private javax.swing.JTextField PibMelhorPib;
+    private javax.swing.JTextField PibPiorIDH;
+    private javax.swing.JTextField PibPiorPib;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
