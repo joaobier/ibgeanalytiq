@@ -6,6 +6,7 @@ package Swing;
 
 import Model.City;
 import Services.Create;
+import Services.Delete;
 import Services.Lista;
 import Services.Update;
 
@@ -20,14 +21,17 @@ public class Editar extends javax.swing.JFrame {
      */
     int indexDaCidadeEditada;
     Lista lista;
-    public Editar(int index, Lista lista) {
+    TelaPrincipal telaPrincipal;
+    City cidadeEditar;
+    public Editar(int idex, Lista lista, TelaPrincipal telaPrincipal) {
      
+        this.telaPrincipal = telaPrincipal;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(Editar.DISPOSE_ON_CLOSE);
         
-        this.indexDaCidadeEditada = index;
+        this.indexDaCidadeEditada = idex;
         
         //declara a lista aqui já
         this.lista = lista;
@@ -36,7 +40,7 @@ public class Editar extends javax.swing.JFrame {
         //lista.atualizarLista();
       
         //monta a cidade que vai ser editada
-        City cidadeEditar = lista.getCidades().get(indexDaCidadeEditada);
+        cidadeEditar = lista.getCidades().get(indexDaCidadeEditada);
         
         //Preenchendo os textfield
         idField.setText(cidadeEditar.getId());
@@ -277,7 +281,11 @@ public class Editar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Update update = new Update();
+        Delete delete = new Delete();
+        Create create = new Create();
+        
+        delete.DeleteById(indexDaCidadeEditada, lista);
+        this.telaPrincipal.removeRow(indexDaCidadeEditada);
         
                 
         String id = idField.getText();
@@ -320,8 +328,8 @@ public class Editar extends javax.swing.JFrame {
         );
         System.out.println(cidade.toCSVOut());
         
-        String idUpdate = String.valueOf(indexDaCidadeEditada);
-        update.UpdateById(idUpdate ,this.lista, cidade);
+        create.createCity(lista, cidade);
+        telaPrincipal.adicionarRow(cidade);
         dispose();
         
         //update.UpdateById(i, lista, cidadeEditar);

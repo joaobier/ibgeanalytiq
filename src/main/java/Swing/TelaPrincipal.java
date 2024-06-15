@@ -151,7 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //lista.sizeList();
         int linhaSelecionada = Table.getSelectedRow();
         if(linhaSelecionada != -1){
-            Editar telaEditar = new Editar(linhaSelecionada, this.lista);
+            Editar telaEditar = new Editar(linhaSelecionada, this.lista,this);
             telaEditar.setVisible(true);
         }
         System.out.println("Tamanho da lista após o processamento do botão editar");
