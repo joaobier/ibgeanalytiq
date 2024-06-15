@@ -8,6 +8,10 @@ import Model.City;
 import Services.Create;
 import Services.Lista;
 import Services.Update;
+import Swing.Filters.LetterFilter;
+import Swing.Filters.NumberOnlyFilter;
+import Swing.Filters.NumberFilter;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -27,6 +31,24 @@ public class Criar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(Criar.DISPOSE_ON_CLOSE);
+        
+        //Setando os filtros
+        ((AbstractDocument) idField.getDocument()).setDocumentFilter(new NumberOnlyFilter());
+        ((AbstractDocument) municipioField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) microRegiaoField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) estadoField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) regiaoGeograficaField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) areaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) populacaoField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) domiciliosField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) pibTotalField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) rendaMediaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) rendaNominalField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) peaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhEduca.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhLonge.getDocument()).setDocumentFilter(new NumberFilter());
+
     }
         
         

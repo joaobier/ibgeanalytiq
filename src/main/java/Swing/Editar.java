@@ -9,9 +9,13 @@ import Services.Create;
 import Services.Delete;
 import Services.Lista;
 import Services.Update;
+import Swing.Filters.LetterFilter;
+import Swing.Filters.NumberFilter;
+import Swing.Filters.NumberOnlyFilter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -61,6 +65,23 @@ public class Editar extends javax.swing.JFrame {
         peaField.setText(String.valueOf(cidadeEditar.getPea()));        
         idhEduca.setText(String.valueOf(cidadeEditar.getIdhEducacao()));
         idhLonge.setText(String.valueOf(cidadeEditar.getIdhLongevidade()));
+        
+        //Setando os filtros
+        ((AbstractDocument) idField.getDocument()).setDocumentFilter(new NumberOnlyFilter());
+        ((AbstractDocument) municipioField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) microRegiaoField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) estadoField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) regiaoGeograficaField.getDocument()).setDocumentFilter(new LetterFilter());
+        ((AbstractDocument) areaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) populacaoField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) domiciliosField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) pibTotalField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) rendaMediaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) rendaNominalField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) peaField.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhEduca.getDocument()).setDocumentFilter(new NumberFilter());
+        ((AbstractDocument) idhLonge.getDocument()).setDocumentFilter(new NumberFilter());
         
     }
         

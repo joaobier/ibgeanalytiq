@@ -4,10 +4,15 @@
  */
 package Swing;
 
+
 import Model.City;
 import Services.Lista;
+import Swing.Filters.LetterFilter;
+import Swing.Filters.NumberOnlyFilter;
+import Swing.Filters.NumberFilter;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -28,6 +33,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         preencherTabela();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(TelaPrincipal.EXIT_ON_CLOSE);
+        
+        //Setando os filtros
+        ((AbstractDocument) TextFieldBuscar.getDocument()).setDocumentFilter(new NumberOnlyFilter());
     }
     
     

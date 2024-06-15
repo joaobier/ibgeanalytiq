@@ -23,7 +23,7 @@ public class Buscar extends javax.swing.JFrame {
     Lista lista;
     
     public Buscar(int index, Lista lista) {
-     
+        
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
