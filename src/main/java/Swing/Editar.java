@@ -9,6 +9,9 @@ import Services.Create;
 import Services.Delete;
 import Services.Lista;
 import Services.Update;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -307,6 +310,10 @@ public class Editar extends javax.swing.JFrame {
         //double pibTotal = Double.parseDouble(Field.getText());
         //String classificacaoIDH;
         //String pibPcTotal;
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataHoraFormatada = agora.format(formatador);
+        
         
         
         City cidade = new City(
@@ -326,6 +333,7 @@ public class Editar extends javax.swing.JFrame {
                 idhEducacao,
                 idhLongevidade
         );
+        cidade.setUltimaAtualizacao(dataHoraFormatada);
         System.out.println(cidade.toCSVOut());
         
         create.createCity(lista, cidade);
