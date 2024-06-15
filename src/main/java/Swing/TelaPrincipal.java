@@ -141,7 +141,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
-        Criar telaCriar = new Criar(this.lista);
+        Criar telaCriar = new Criar(this.lista, this);
         telaCriar.setVisible(true);
         
     }//GEN-LAST:event_CreateButtonActionPerformed
@@ -202,6 +202,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
             //telaDeletar.setVisible(true);
         }
         
+    }
+    
+    public void adicionarRow(City cidade){
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        Object rowData[] = new Object[21];
+
+            rowData[0] = cidade.getId();
+            rowData[1] = cidade.getMunicipio();
+            rowData[2] = cidade.getMicroregiao();
+            rowData[3] = cidade.getEstado();
+            rowData[4] = cidade.getRegiaoGeografica();
+            rowData[5] = cidade.getArea();
+            rowData[6] = cidade.getPopulacao();
+            rowData[7] = cidade.getDomicilios();
+            rowData[8] = cidade.getPibTotal();
+            rowData[9] = cidade.getIdh();
+            rowData[10] = cidade.getRendaMedia();
+            rowData[11] = cidade.getRendaNominal();
+            rowData[12] = cidade.getPea();
+            rowData[13] = cidade.getIdhEducacao();
+            rowData[14] = cidade.getIdhLongevidade();
+            rowData[15] = cidade.getDensidadeDemografica();
+            rowData[16] = cidade.getClassficacaoIDH();
+            rowData[17] = cidade.getPibPcTotal();
+            rowData[18] = cidade.getUltimaAtualizacao();
+            rowData[19] = cidade.getClassificacaoIDHEdu();
+            rowData[20] = cidade.getClassificacaoIDHLongevidade();
+            model.addRow(rowData);
+
     }
     
     private void preencherTabela(){

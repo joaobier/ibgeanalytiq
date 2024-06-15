@@ -33,7 +33,7 @@ public class Editar extends javax.swing.JFrame {
         this.lista = lista;
         
         //atualiza a lista pra garantir que ela tá igual
-        lista.atualizarLista();
+        //lista.atualizarLista();
       
         //monta a cidade que vai ser editada
         City cidadeEditar = lista.getCidades().get(indexDaCidadeEditada);
@@ -318,6 +318,8 @@ public class Editar extends javax.swing.JFrame {
                 idhEducacao,
                 idhLongevidade
         );
+        System.out.println(cidade.toCSVOut());
+        
         String idUpdate = String.valueOf(indexDaCidadeEditada);
         update.UpdateById(idUpdate ,this.lista, cidade);
         dispose();

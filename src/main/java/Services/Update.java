@@ -20,30 +20,31 @@ public class Update {
         this.writer = new Writer();
     }
 
-    public boolean UpdateById(String id, Lista lista, City cidade) {
+    public void UpdateById(String id, Lista lista, City cidade) {
 
-        ArrayList<City> cidades = lista.getCidades();
-
-        for (int i = 0; i < lista.cidades.size(); i++) {
-            City item = cidades.get(i);
-            if(item.getId().equals(id)) {
-                System.out.println("Achei isso aqui: "+item.toCSV());
-                System.out.println("VOU REMOVER!");
-                cidades.remove(i);
+        for (int i = 0; i < lista.getCidades().size(); i++) {
+            
+            if(cidade.getId() == lista.getCidades().get(i).getId()){
+                System.out.println("Achei isso aqui: "+ lista.getCidades().get(i).toCSV());
+                LocalDate momento = LocalDate.now();
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                formato.format(momento);
+                String horarioString = momento.toString();
+                cidade.setUltimaAtualizacao(horarioString);
+                lista.cidades.set(i, cidade);
+                writer.atualizarTodoCSV(lista.getCidades());
             }
         }
 
         //Pega a hora do sistema no momento do update
-        LocalDate momento = LocalDate.now();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
         //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); //usando esse formatador para colocar a hora em um formato legível
-        formato.format(momento);
-        String horarioString = momento.toString();
+        
         //Adiciona a data da atualização na cidade atualizada
-        cidade.setUltimaAtualizacao(horarioString);
+        
 
-        cidades.add(cidade);
-        writer.atualizarTodoCSV(cidades);
+        //cidades.add(cidade);
+        //writer.atualizarTodoCSV(cidades);
 
         //lista.setCidades(cidades);
         //lista.listarComoCSV();
@@ -58,6 +59,5 @@ public class Update {
         lista.setCidades(cidades);
         writer.adicionarCidade(cidade);
          */
-        return true;
     }
 }

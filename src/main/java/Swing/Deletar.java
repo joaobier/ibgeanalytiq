@@ -125,7 +125,8 @@ public class Deletar extends javax.swing.JFrame {
         Delete delete = new Delete();
         
         
-        City cidade = lista.getCidades().get(id);  
+        City cidade = lista.getCidades().get(id);
+        idCitySelect.setText(cidade.getMunicipio());
         delete.DeleteById(id, lista);
         this.telaPrincipal.removeRow(id);
         dispose();

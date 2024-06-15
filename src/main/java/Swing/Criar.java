@@ -19,8 +19,10 @@ public class Criar extends javax.swing.JFrame {
      * Creates new form Edicao
      */
     Lista lista;
-    public Criar(Lista lista) {
+    TelaPrincipal telaPrincipal;
+    public Criar(Lista lista, TelaPrincipal telaPrincipal) {
         this.lista = lista;
+        this.telaPrincipal = telaPrincipal;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -290,6 +292,7 @@ public class Criar extends javax.swing.JFrame {
         );
         
         create.createCity(lista, cidadeNova);
+        telaPrincipal.adicionarRow(cidadeNova);
         dispose();
         
         
