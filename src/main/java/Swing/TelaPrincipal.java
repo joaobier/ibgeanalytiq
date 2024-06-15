@@ -57,7 +57,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CreateButton = new javax.swing.JButton();
         EditarButton = new javax.swing.JButton();
         DeletarButton = new javax.swing.JButton();
-        UjeversonButton = new javax.swing.JButton();
+        RelatorioButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("IBGE AnalytiQ");
@@ -116,10 +116,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        UjeversonButton.setText("Relatório");
-        UjeversonButton.addActionListener(new java.awt.event.ActionListener() {
+        RelatorioButton.setText("Relatório");
+        RelatorioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UjeversonButtonActionPerformed(evt);
+                RelatorioButtonActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BuscarButton)
                 .addGap(195, 195, 195)
-                .addComponent(UjeversonButton)
+                .addComponent(RelatorioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CreateButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -153,7 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(CreateButton)
                     .addComponent(EditarButton)
                     .addComponent(DeletarButton)
-                    .addComponent(UjeversonButton))
+                    .addComponent(RelatorioButton))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
         );
@@ -212,12 +212,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //lista.sizeList();
     }//GEN-LAST:event_BuscarButtonActionPerformed
 
-    private void UjeversonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UjeversonButtonActionPerformed
+    private void RelatorioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioButtonActionPerformed
         
         Relatorio relatorio = new Relatorio(this.lista);
         relatorio.setVisible(true);
         
-    }//GEN-LAST:event_UjeversonButtonActionPerformed
+    }//GEN-LAST:event_RelatorioButtonActionPerformed
 
     public void removeRow(int row){
         //lista.sizeList();
@@ -311,9 +311,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton CreateButton;
     private javax.swing.JButton DeletarButton;
     private javax.swing.JButton EditarButton;
+    private javax.swing.JButton RelatorioButton;
     private javax.swing.JTable Table;
     private javax.swing.JTextField TextFieldBuscar;
-    private javax.swing.JButton UjeversonButton;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

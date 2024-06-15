@@ -25,6 +25,8 @@ public class Deletar extends javax.swing.JFrame {
     private TelaPrincipal telaPrincipal;
     public Deletar(int id, TelaPrincipal telaPrincipal, Lista lista) {
         initComponents();
+        this.cidade = lista.getCidades().get(id);
+        idCitySelect.setText(cidade.getMunicipio());
         this.id = id;
         this.telaPrincipal = telaPrincipal;
         setTitle("Deletar");
@@ -124,8 +126,6 @@ public class Deletar extends javax.swing.JFrame {
 
         Delete delete = new Delete();
         
-        
-        City cidade = lista.getCidades().get(id);
         idCitySelect.setText(cidade.getMunicipio());
         delete.DeleteById(id, lista);
         this.telaPrincipal.removeRow(id);

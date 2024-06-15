@@ -95,7 +95,7 @@ public class Buscar extends javax.swing.JFrame {
         peaField = new javax.swing.JTextField();
         idhEduca = new javax.swing.JTextField();
         idhLonge = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        FecharButton = new javax.swing.JButton();
         microRegiaoField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -143,18 +143,13 @@ public class Buscar extends javax.swing.JFrame {
         peaField.setEditable(false);
 
         idhEduca.setEditable(false);
-        idhEduca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idhEducaActionPerformed(evt);
-            }
-        });
 
         idhLonge.setEditable(false);
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FecharButton.setText("Voltar");
+        FecharButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FecharButtonActionPerformed(evt);
             }
         });
 
@@ -197,7 +192,7 @@ public class Buscar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(FecharButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
@@ -306,18 +301,14 @@ public class Buscar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(regiaoGeograficaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(FecharButton)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idhEducaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idhEducaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idhEducaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void FecharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharButtonActionPerformed
         
         //Update update = new Update();
         
@@ -366,7 +357,7 @@ public class Buscar extends javax.swing.JFrame {
         dispose();
         
         //update.UpdateById(i, lista, cidadeEditar);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_FecharButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,6 +365,7 @@ public class Buscar extends javax.swing.JFrame {
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton FecharButton;
     private javax.swing.JTextField areaField;
     private javax.swing.JTextField domiciliosField;
     private javax.swing.JTextField estadoField;
@@ -381,7 +373,6 @@ public class Buscar extends javax.swing.JFrame {
     private javax.swing.JTextField idhEduca;
     private javax.swing.JTextField idhField;
     private javax.swing.JTextField idhLonge;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

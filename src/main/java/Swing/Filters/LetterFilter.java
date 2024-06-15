@@ -2,6 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Swing.Filters;
 
 import javax.swing.text.*;
@@ -24,7 +28,7 @@ public class LetterFilter extends DocumentFilter {
 
     private boolean isValidInput(String text) {
         for (char c : text.toCharArray()) {
-            if (!Character.isLetter(c)) {
+            if (!Character.isLetter(c) && c != '-' && c != ' ') {
                 return false;
             }
         }
