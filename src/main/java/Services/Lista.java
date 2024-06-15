@@ -22,6 +22,7 @@ public class Lista {
     public Lista(){ 
         this.filePathSaida ="C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
         fileOut = new File(filePathSaida);
+        sizeList();
         System.out.println("FILEOUT ESTÁ VERIFICANDO O LOCAL:" + fileOut.getAbsolutePath()+ " E RETORNANDO UM: " + fileOut.exists());
         preencherLista();
 
@@ -32,15 +33,19 @@ public class Lista {
         try {
             if (fileOut.exists() && fileOut.length() > 0) {
                 System.out.println("ESTOU LENDO O  OUT");
-                this.cidades = leitor.lerArquivoSaida(); // lê o que tem no arquivo de saída
+                sizeList();
+                this.cidades = leitor.lerArquivoSaida();
+                sizeList();// lê o que tem no arquivo de saída
             } else {
                 
                 System.out.println("ESTOU LENDO A ENTRADA");
+                sizeList();
                 this.cidades = leitor.lerArquivoEntrada(); // lê o que tem no arquivo de entrada
-
+                sizeList();
                 // Aproveita e já cria o arquivo de saída
                 Writer writer = new Writer();
-                writer.atualizarTodoCSV(this.cidades); // já preenche o arquivo de saída
+                writer.atualizarTodoCSV(this.cidades);
+                sizeList();// já preenche o arquivo de saída
             }
         } catch (Exception e) {
             System.err.println("Erro ao processar arquivos: " + e.getMessage());
@@ -94,13 +99,26 @@ public class Lista {
     }
 
     public void setCidades(ArrayList<City> array){
+        sizeList();
         this.cidades = array;
+        sizeList();
     }
     
     public void atualizarLista(){
-
+        sizeList();
+        this.cidades = null;
+        sizeList();
         this.cidades = this.leitor.lerArquivoSaida();
+        sizeList();
 
+    }
+    
+    public void sizeList(){
+        if(this.cidades == null){
+            System.out.println("Está nulo");
+        } else{
+            System.out.println("Tamanho da lista: " + this.cidades.size());
+        }
     }
 
     
@@ -110,7 +128,9 @@ public class Lista {
     }
     
     public boolean AddCidade(City cidade){
+        sizeList();
         this.cidades.add(cidade);
+        sizeList();
         return true;
     }
 }

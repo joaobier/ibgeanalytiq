@@ -18,8 +18,9 @@ public class Criar extends javax.swing.JFrame {
     /**
      * Creates new form Edicao
      */
-    public Criar() {
-     
+    Lista lista;
+    public Criar(Lista lista) {
+        this.lista = lista;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -247,7 +248,7 @@ public class Criar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         Create create = new Create();
-        Lista lista = new Lista();
+        
                
         String id = idField.getText();
         String municipio = municipioField.getText();

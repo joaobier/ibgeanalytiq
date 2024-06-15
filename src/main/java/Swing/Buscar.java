@@ -22,7 +22,7 @@ public class Buscar extends javax.swing.JFrame {
     int indexDaCidadeBuscada;
     Lista lista;
     
-    public Buscar(int index) {
+    public Buscar(int index, Lista lista) {
      
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,18 +32,18 @@ public class Buscar extends javax.swing.JFrame {
         this.indexDaCidadeBuscada = index;
         
         //inicializa a lista aqui já
-        lista = new Lista();
+        //lista = new Lista();
         
         //atualiza a lista pra garantir que ela tá igual
-        lista.atualizarLista();
+        //lista.atualizarLista();
         
         
-        ArrayList<City> cidades = lista.getCidades();
+        //ArrayList<City> cidades = lista.getCidades();
         
         City cidadeBuscar = null;
         
-        for (int i = 0; i < cidades.size(); i++) {
-            City item = cidades.get(i);
+        for (int i = 0; i < lista.getCidades().size(); i++) {
+            City item = lista.getCidades().get(i);
             if(item.getId().equals(String.valueOf(index))) {
                 cidadeBuscar = item;
             }

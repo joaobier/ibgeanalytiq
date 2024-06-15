@@ -30,7 +30,6 @@ public class Deletar extends javax.swing.JFrame {
         setTitle("Deletar");
         //Delete delete = new Delete();
         this.lista = lista;
-        lista.atualizarLista();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(Deletar.DISPOSE_ON_CLOSE);
     }

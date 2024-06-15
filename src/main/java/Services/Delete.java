@@ -17,6 +17,7 @@ public class Delete {
         //ArrayList<City> cidades = lista.getCidades();
         //City cidade = cidades.get(id);
         System.out.println(lista.getCidades().get(id).toString());
+        System.out.println(lista.getCidades().size());
         lista.getCidades().remove(id);
         //cidades.remove(cidade);
         writer.atualizarTodoCSV(lista.getCidades());

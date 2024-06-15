@@ -78,66 +78,6 @@ public class Reader {
         return this.listaCidades;
     }
 
-    public ArrayList<City> lerArquivo(){
-
-        BufferedReader reader = null;
-        String line = "";
-
-        System.out.println("Vou ler o arquivo na posição: " + filePathSaida);
-        try
-        {
-            reader = new BufferedReader(new FileReader(this.filePathSaida));
-            //reader.readLine(); //só pra pular a linha que tem o cabeçalho
-            while((line = reader.readLine()) != null){
-                String[] row = line.split(";");
-
-                for(int j = 0; j < row.length; j++){
-                    row[j] = row[j].replace(".","").replace(",",".").trim();
-
-                }
-                for(int j = 0; j < row.length; j++){
-                    System.out.println(j +"="+row[j]);
-                }
-
-                City city = new City(
-                        row[0], //Código IBGE
-                        row[1], //Municípios
-                        row[2], //Microregião
-                        row[3], //Estado
-                        row[4], //Região Geográfica
-                        parseDouble(row[5]), //Área
-                        parseDouble(row[6]), //População
-                        parseDouble(row[7]), //Domicílios
-                        parseDouble(row[8]), //PIB total
-                        parseDouble(row[9]), //IDH
-                        parseDouble(row[10]), //Renda média
-                        parseDouble(row[11]), //Renda Nominal
-                        parseDouble(row[12]), //PEA dia
-                        parseDouble(row[13]), //IDH educação
-                        parseDouble(row[14])); //IDH longevidade
-
-                //System.out.println(city.toString());
-                this.listaCidades.add(city);
-
-            }
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        } finally {
-            try{
-                reader.close();
-                return this.listaCidades;
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return this.listaCidades;
-    }
-
     public ArrayList<City> lerArquivoSaida(){
 
         BufferedReader reader = null;
@@ -201,6 +141,7 @@ public class Reader {
                 e.printStackTrace();
             }
         }
+        System.out.println(this.listaCidades.size());
         return this.listaCidades;
     }
 

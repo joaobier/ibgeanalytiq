@@ -20,7 +20,7 @@ public class Editar extends javax.swing.JFrame {
      */
     int indexDaCidadeEditada;
     Lista lista;
-    public Editar(int index) {
+    public Editar(int index, Lista lista) {
      
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,7 +30,7 @@ public class Editar extends javax.swing.JFrame {
         this.indexDaCidadeEditada = index;
         
         //declara a lista aqui já
-        lista = new Lista();
+        this.lista = lista;
         
         //atualiza a lista pra garantir que ela tá igual
         lista.atualizarLista();
