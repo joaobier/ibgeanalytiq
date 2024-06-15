@@ -10,8 +10,8 @@ import static java.lang.Integer.parseInt;
 public class Reader {
 
     private ArrayList<City> listaCidades = new ArrayList<>();
-    private String filePathEntrada = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\DadosPI\\01.ProjetoIntegrador_BaseMunicipios_In.csv";
-    private String filePathSaida = "C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
+    private String filePathEntrada = "C:\\Projeto Integrador\\Entrada\\01.ProjetoIntegrador_BaseMunicipios_In.csv";
+    private String filePathSaida = "C:\\Projeto Integrador\\Out\\01.ProjetoIntegrador_BaseMunicipios_Out.csv";
     public Reader(){
         //this.filePathEntrada = "C:\\Users\\Aluno\\Desktop\\dadosPI\\teste.csv";
         //this.filePathSaida = "C:\\Users\\Aluno\\Desktop\\Out\\out.csv";
