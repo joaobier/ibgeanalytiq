@@ -22,7 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         lista = new Lista();
         System.out.println("eu sou a lista instanciada na tela principal");
-        lista.sizeList();
+        //lista.sizeList();
         initComponents();
    
         preencherTabela();
@@ -148,28 +148,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void EditarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarButtonActionPerformed
         System.out.println("Tamanho da lista quando aperto botão editar");
-        lista.sizeList();
+        //lista.sizeList();
         int linhaSelecionada = Table.getSelectedRow();
         if(linhaSelecionada != -1){
             Editar telaEditar = new Editar(linhaSelecionada, this.lista);
             telaEditar.setVisible(true);
         }
         System.out.println("Tamanho da lista após o processamento do botão editar");
-        lista.sizeList();
+        //lista.sizeList();
 
         
     }//GEN-LAST:event_EditarButtonActionPerformed
 
     private void DeletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarButtonActionPerformed
         System.out.println("Tamanho da lista quando aperto botão deletar");
-        lista.sizeList();
+        //lista.sizeList();
         int linhaSelecionada = Table.getSelectedRow();
         if(linhaSelecionada != -1){
             Deletar telaDeletar = new Deletar(linhaSelecionada, this, this.lista);
             telaDeletar.setVisible(true);
         }
         System.out.println("Tamanho da lista após o processamento do botão deletar");
-        lista.sizeList();
+        //lista.sizeList();
         /*
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         int linhaSelecionada = Table.getSelectedRow();
@@ -183,16 +183,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarButtonActionPerformed
         System.out.println("Tamanho da lista quando aperto botão buscar");
-        lista.sizeList();
+        //lista.sizeList();
         String IdBusca = TextFieldBuscar.getText();
         Buscar telaBuscar = new Buscar(Integer.parseInt(IdBusca),this.lista);
         telaBuscar.setVisible(true);
         System.out.println("Tamanho da lista após o processamento do botão buscar");
-        lista.sizeList();
+        //lista.sizeList();
     }//GEN-LAST:event_BuscarButtonActionPerformed
 
     public void removeRow(int row){
-        lista.sizeList();
+        //lista.sizeList();
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         int linhaSelecionada = row;
         if(linhaSelecionada != -1){

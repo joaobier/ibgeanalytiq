@@ -20,10 +20,10 @@ public class Lista {
     File fileOut; //declara o arquivo para verificar se ele existe
 
     public Lista(){ 
-        this.filePathSaida ="C:\\Users\\Sa_Th\\Desktop\\Out\\out.csv";
+        this.filePathSaida ="C:\\Users\\joaov\\OneDrive\\Área de Trabalho\\Out\\out.csv";
         fileOut = new File(filePathSaida);
-        sizeList();
-        System.out.println("FILEOUT ESTÁ VERIFICANDO O LOCAL:" + fileOut.getAbsolutePath()+ " E RETORNANDO UM: " + fileOut.exists());
+        //sizeList();
+        //System.out.println("FILEOUT ESTÁ VERIFICANDO O LOCAL:" + fileOut.getAbsolutePath()+ " E RETORNANDO UM: " + fileOut.exists());
         preencherLista();
 
     }
@@ -31,21 +31,21 @@ public class Lista {
     public void preencherLista(){
         //this.cidades = this.leitor.lerArquivo();
         try {
-            if (fileOut.exists() && fileOut.length() > 0) {
+            if (this.fileOut.exists()) {
                 System.out.println("ESTOU LENDO O  OUT");
-                sizeList();
+                //();
                 this.cidades = leitor.lerArquivoSaida();
-                sizeList();// lê o que tem no arquivo de saída
+                //sizeList();// lê o que tem no arquivo de saída
             } else {
                 
                 System.out.println("ESTOU LENDO A ENTRADA");
-                sizeList();
+                //();
                 this.cidades = leitor.lerArquivoEntrada(); // lê o que tem no arquivo de entrada
-                sizeList();
+                //sizeList();
                 // Aproveita e já cria o arquivo de saída
                 Writer writer = new Writer();
                 writer.atualizarTodoCSV(this.cidades);
-                sizeList();// já preenche o arquivo de saída
+                //sizeList();// já preenche o arquivo de saída
             }
         } catch (Exception e) {
             System.err.println("Erro ao processar arquivos: " + e.getMessage());
@@ -99,20 +99,21 @@ public class Lista {
     }
 
     public void setCidades(ArrayList<City> array){
-        sizeList();
+        //sizeList();
         this.cidades = array;
-        sizeList();
+        //sizeList();
     }
     
     public void atualizarLista(){
-        sizeList();
+        //sizeList();
         this.cidades = null;
-        sizeList();
+        //sizeList();
         this.cidades = this.leitor.lerArquivoSaida();
-        sizeList();
+        //sizeList();
 
     }
     
+    /*
     public void sizeList(){
         if(this.cidades == null){
             System.out.println("Está nulo");
@@ -120,6 +121,7 @@ public class Lista {
             System.out.println("Tamanho da lista: " + this.cidades.size());
         }
     }
+    */
 
     
     public boolean removeCity(City cidade){
@@ -128,9 +130,9 @@ public class Lista {
     }
     
     public boolean AddCidade(City cidade){
-        sizeList();
+        //sizeList();
         this.cidades.add(cidade);
-        sizeList();
+        //sizeList();
         return true;
     }
 }
