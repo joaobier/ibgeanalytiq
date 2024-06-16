@@ -21,6 +21,8 @@ public class Relatorio extends javax.swing.JFrame {
     City piorPib;
     City melhorIdhEdu;
     City piorIdhEdu;
+    City maiorPibTotal;
+    City menorPibTotal;
     public Relatorio(Lista lista) {
         this.lista = lista;
         initComponents();
@@ -28,8 +30,11 @@ public class Relatorio extends javax.swing.JFrame {
         //Inicializando as cidades
         melhorPib = MelhorPib();
         piorPib = PiorPib();
-        melhorIdhEdu = melhorIdhEdu();
+        melhorIdhEdu = melhorIdhEdu(lista);
         piorIdhEdu = piorIdhEdu();
+        maiorPibTotal = MaiorPibCidade(lista);
+        menorPibTotal = MenorPibCidade();
+        
         
         //Mostrando no terminal só pra ver
         System.out.println("Melhor PibPc: " +melhorPib.toString());
@@ -67,7 +72,17 @@ public class Relatorio extends javax.swing.JFrame {
         IDHEduPiorIDH.setText(String.valueOf(piorIdhEdu.getIdhEducacao()));
         PibPiorIDH.setText(String.valueOf(piorIdhEdu.getPibPcTotal()));
         
+        //maior pib total
+        CidadeMaiorPibTotal.setText(maiorPibTotal.getMunicipio());
+        IDHMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getIdh()));
+        IDHEduMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getPibTotal()));
+        PibPcMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getPibPcTotal()));
         
+        //menor pib total
+        CidadeMenorPibTotal.setText(menorPibTotal.getMunicipio());
+        IDHMenorPibTotal.setText(String.valueOf(menorPibTotal.getIdh()));
+        IDHEduMenorPibTotal.setText(String.valueOf(menorPibTotal.getIdhEducacao()));
+        PibMenorPibPcTotal.setText(String.valueOf(menorPibTotal.getPibPcTotal()));    
     }
 
     private City MelhorPib(){
@@ -97,16 +112,16 @@ public class Relatorio extends javax.swing.JFrame {
         return piorPib;
     }
     
-    private City melhorIdhEdu(){
+    static City melhorIdhEdu(Lista lista){
         City melhorIdhEdu = lista.getCidades().get(0);
         for(int i = 1; i < lista.getCidades().size();i++){
-            
+
             if(lista.getCidades().get(i).getIdhEducacao() > melhorIdhEdu.getIdhEducacao()){
                 melhorIdhEdu = lista.getCidades().get(i);
             }
-            
+
         }
-        
+
         return melhorIdhEdu;
     }
     
@@ -114,12 +129,39 @@ public class Relatorio extends javax.swing.JFrame {
         City piorIdhEdu = lista.getCidades().get(0);
         for(int i = 1; i < lista.getCidades().size();i++){
             
-            if(melhorIdhEdu.getIdhEducacao() > lista.getCidades().get(i).getIdhEducacao()){
-                melhorIdhEdu = lista.getCidades().get(i);
+            if(piorIdhEdu.getIdhEducacao() > lista.getCidades().get(i).getIdhEducacao()){
+                piorIdhEdu = lista.getCidades().get(i);
             }
             
         }
         return piorIdhEdu;
+    }
+    
+    private City MaiorPibCidade(Lista lista){
+
+        City maiorPib = lista.getCidades().get(0);
+
+        for(int i = 1; i < lista.getCidades().size();i++){
+
+            if(lista.getCidades().get(i).getPibTotal() > maiorPib.getPibTotal()){
+                maiorPib = lista.getCidades().get(i);
+            }
+
+        }
+        return maiorPib;
+
+    }
+    
+    private City MenorPibCidade(){
+        City menorPib = lista.getCidades().get(0);
+        for(int i = 1; i < lista.getCidades().size();i++){
+            
+            if(menorPib.getPibTotal() > lista.getCidades().get(i).getPibTotal()){
+                menorPib = lista.getCidades().get(i);
+            }
+            
+        }
+        return menorPib;
     }
     
     /**
@@ -172,10 +214,30 @@ public class Relatorio extends javax.swing.JFrame {
         DetalhesPiorPib = new javax.swing.JButton();
         DatelhesMelhorIdh = new javax.swing.JButton();
         DetalhesPìorIdh = new javax.swing.JButton();
+        PibPcMelhorPibTotal = new javax.swing.JTextField();
+        DetalhesMaiorPibTotal = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        CidadeMaiorPibTotal = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        IDHMelhorPibTotal = new javax.swing.JTextField();
+        IDHEduMelhorPibTotal = new javax.swing.JTextField();
+        PibMenorPibPcTotal = new javax.swing.JTextField();
+        DetalhesMenorPibTotal = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        CidadeMenorPibTotal = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        IDHMenorPibTotal = new javax.swing.JTextField();
+        IDHEduMenorPibTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Melhor Pib Per Capta");
+        jLabel1.setText("Maior Pib Per Capta");
 
         CidadeMelhorPIB.setEditable(false);
 
@@ -193,11 +255,11 @@ public class Relatorio extends javax.swing.JFrame {
 
         PibMelhorPib.setEditable(false);
 
-        jLabel6.setText("Pior Pib Per Capta");
+        jLabel6.setText("Menor Pib Per Capta");
 
-        jLabel11.setText("Melhor IDH Educacional");
+        jLabel11.setText("Maior IDH Educacional");
 
-        jLabel16.setText("Pior IDH Educacional");
+        jLabel16.setText("Menor IDH Educacional");
 
         IDHPiorPib.setEditable(false);
 
@@ -282,6 +344,56 @@ public class Relatorio extends javax.swing.JFrame {
             }
         });
 
+        PibPcMelhorPibTotal.setEditable(false);
+
+        DetalhesMaiorPibTotal.setText("Detalhes");
+        DetalhesMaiorPibTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetalhesMaiorPibTotalActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Maior Pib");
+
+        CidadeMaiorPibTotal.setEditable(false);
+
+        jLabel8.setText("Cidade");
+
+        jLabel9.setText("IDH");
+
+        jLabel10.setText("IDH Educacional");
+
+        jLabel12.setText("Pib Per Capta");
+
+        IDHMelhorPibTotal.setEditable(false);
+
+        IDHEduMelhorPibTotal.setEditable(false);
+
+        PibMenorPibPcTotal.setEditable(false);
+
+        DetalhesMenorPibTotal.setText("Detalhes");
+        DetalhesMenorPibTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetalhesMenorPibTotalActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Menor Pib");
+
+        CidadeMenorPibTotal.setEditable(false);
+
+        jLabel14.setText("Cidade");
+
+        jLabel15.setText("IDH");
+
+        jLabel17.setText("IDH Educacional");
+
+        jLabel18.setText("Pib Per Capta");
+
+        IDHMenorPibTotal.setEditable(false);
+
+        IDHEduMenorPibTotal.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,7 +440,28 @@ public class Relatorio extends javax.swing.JFrame {
                                 .addComponent(PibPiorPib, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(DetalhesPiorPib))
-                            .addComponent(jLabel24))))
+                            .addComponent(jLabel24)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel7)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(CidadeMaiorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(IDHMelhorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addComponent(IDHEduMelhorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(PibPcMelhorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(DetalhesMaiorPibTotal))
+                                .addComponent(jLabel12)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
@@ -370,7 +503,27 @@ public class Relatorio extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(PibPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DetalhesPìorIdh)))))
+                                .addComponent(DetalhesPìorIdh))))
+                    .addComponent(jLabel13)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CidadeMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IDHMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(IDHEduMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PibMenorPibPcTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DetalhesMenorPibTotal))
+                            .addComponent(jLabel18))))
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -449,7 +602,41 @@ public class Relatorio extends javax.swing.JFrame {
                                 .addComponent(IDHPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(IDHEduPiorIDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(DetalhesPìorIdh)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibPcMelhorPibTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadeMaiorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHMelhorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduMelhorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DetalhesMaiorPibTotal))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PibMenorPibPcTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CidadeMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDHEduMenorPibTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DetalhesMenorPibTotal)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(FecharButton)
                 .addGap(15, 15, 15))
         );
@@ -481,35 +668,62 @@ public class Relatorio extends javax.swing.JFrame {
         detalhes.setVisible(true);
     }//GEN-LAST:event_DetalhesPìorIdhActionPerformed
 
+    private void DetalhesMaiorPibTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalhesMaiorPibTotalActionPerformed
+        Detalhes detalhes = new Detalhes(this.maiorPibTotal);
+        detalhes.setVisible(true);
+    }//GEN-LAST:event_DetalhesMaiorPibTotalActionPerformed
+
+    private void DetalhesMenorPibTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalhesMenorPibTotalActionPerformed
+        Detalhes detalhes = new Detalhes(this.menorPibTotal);
+        detalhes.setVisible(true);
+    }//GEN-LAST:event_DetalhesMenorPibTotalActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CidadeMaiorPibTotal;
     private javax.swing.JTextField CidadeMelhorIDH;
     private javax.swing.JTextField CidadeMelhorPIB;
+    private javax.swing.JTextField CidadeMenorPibTotal;
     private javax.swing.JTextField CidadePiorIDH;
     private javax.swing.JTextField CidadePiorPIB;
     private javax.swing.JButton DatelhesMelhorIdh;
+    private javax.swing.JButton DetalhesMaiorPibTotal;
     private javax.swing.JButton DetalhesMelhorPib;
+    private javax.swing.JButton DetalhesMenorPibTotal;
     private javax.swing.JButton DetalhesPiorPib;
     private javax.swing.JButton DetalhesPìorIdh;
     private javax.swing.JButton FecharButton;
     private javax.swing.JTextField IDHEduMelhorIDH;
     private javax.swing.JTextField IDHEduMelhorPib;
+    private javax.swing.JTextField IDHEduMelhorPibTotal;
+    private javax.swing.JTextField IDHEduMenorPibTotal;
     private javax.swing.JTextField IDHEduPiorIDH;
     private javax.swing.JTextField IDHEduPiorPib;
     private javax.swing.JTextField IDHMelhorIDH;
     private javax.swing.JTextField IDHMelhorPib;
+    private javax.swing.JTextField IDHMelhorPibTotal;
+    private javax.swing.JTextField IDHMenorPibTotal;
     private javax.swing.JTextField IDHPiorIDH;
     private javax.swing.JTextField IDHPiorPib;
     private javax.swing.JTextField PibMelhorIDH;
     private javax.swing.JTextField PibMelhorPib;
+    private javax.swing.JTextField PibMenorPibPcTotal;
+    private javax.swing.JTextField PibPcMelhorPibTotal;
     private javax.swing.JTextField PibPiorIDH;
     private javax.swing.JTextField PibPiorPib;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -527,5 +741,8 @@ public class Relatorio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
