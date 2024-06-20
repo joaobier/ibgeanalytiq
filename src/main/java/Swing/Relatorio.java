@@ -93,7 +93,7 @@ public class Relatorio extends javax.swing.JFrame {
         //maior pib total
         CidadeMaiorPibTotal.setText(maiorPibTotal.getMunicipio());
         IDHMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getIdh()));
-        IDHEduMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getPibTotal()));
+        IDHEduMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getIdhEducacao()));
         PibPcMelhorPibTotal.setText(String.valueOf(maiorPibTotal.getPibPcTotal()));
         
         //menor pib total
@@ -254,6 +254,7 @@ public class Relatorio extends javax.swing.JFrame {
         IDHEduMenorPibTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Relatório");
 
         jLabel1.setText("Maior Pib Per Capta");
 

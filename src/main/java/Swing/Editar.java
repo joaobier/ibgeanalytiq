@@ -151,6 +151,14 @@ public class Editar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Editar");
 
+        idField.setEditable(false);
+
+        municipioField.setEditable(false);
+
+        estadoField.setEditable(false);
+
+        regiaoGeograficaField.setEditable(false);
+
         idhEduca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idhEducaActionPerformed(evt);
@@ -163,6 +171,8 @@ public class Editar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        microRegiaoField.setEditable(false);
 
         jLabel1.setText("Código IBGE");
 

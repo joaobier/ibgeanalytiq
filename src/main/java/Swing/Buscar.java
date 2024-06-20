@@ -134,7 +134,7 @@ public class Buscar extends javax.swing.JFrame {
         jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Editar");
+        setTitle("Buscar");
 
         idField.setEditable(false);
 

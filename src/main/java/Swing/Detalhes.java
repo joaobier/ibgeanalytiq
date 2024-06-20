@@ -124,7 +124,7 @@ public class Detalhes extends javax.swing.JFrame {
         jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Editar");
+        setTitle("Detalhes");
 
         idField.setEditable(false);
 
