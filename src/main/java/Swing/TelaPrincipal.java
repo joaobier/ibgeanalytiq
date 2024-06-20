@@ -53,6 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         preencherTabela();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(TelaPrincipal.EXIT_ON_CLOSE);
+        this.setExtendedState(MAXIMIZED_BOTH);
         
         //Setando os filtros
         ((AbstractDocument) TextFieldBuscar.getDocument()).setDocumentFilter(new NumberOnlyFilter());
